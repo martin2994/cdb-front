@@ -1,3 +1,16 @@
-<p>
-  company works!
-</p>
+<mat-card class="example-card" >
+  <mat-card-header>
+    <div ></div>
+    <mat-card-title>{{ company.name }}</mat-card-title>
+    <mat-card-subtitle>&nbsp;</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+
+  </mat-card-content>
+
+  <mat-card-actions >
+    <button mat-raised-button color="primary" [routerLink]="['/company',this.company.id]" > See details </button>
+  </mat-card-actions>
+
+</mat-card>

@@ -1,3 +1,14 @@
-<p>
-  companies works!
-</p>
+<div class="container" *ngIf="companies">
+
+  <app-company  *ngFor="let company of companies.results" [company]="company"></app-company>
+
+  <div>
+
+    <mat-paginator [length]="length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="changePagination($event)">
+    </mat-paginator>
+
+
+</div>

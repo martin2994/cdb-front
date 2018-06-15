@@ -8,6 +8,7 @@ import {CompanyDetailComponent} from './company-detail/company-detail.component'
 import {CustomMaterialModule} from '../custom-material/custom-material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {MatPaginatorModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {RouterModule} from '@angular/router';
     CustomMaterialModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule
   ],
   declarations: [
     CompanyComponent,

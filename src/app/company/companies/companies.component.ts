@@ -16,16 +16,17 @@ export class CompaniesComponent implements OnInit {
   pageSize = 10;
   pageSizeOptions = [5, 10, 25, 100];
   pageEvent: PageEvent;
+  search: string;
 
   constructor(private companyService: CompanyService) {
   }
 
   ngOnInit() {
-    this.getCompanies(0, this.pageSize);
+    this.getCompanies(0, this.pageSize, '');
   }
 
-  getCompanies(page: number, resultPerPage: number) {
-    this.companyService.getCompanyPage(page, resultPerPage).subscribe(company => {
+  getCompanies(page: number, resultPerPage: number, search: string) {
+    this.companyService.getCompanyPage(page, resultPerPage, search).subscribe(company => {
       this.companies = company;
       this.pageSize = company.resultPerPage;
       this.length = company.numberOfElements;
@@ -34,7 +35,11 @@ export class CompaniesComponent implements OnInit {
 
   changePagination(event) {
     this.pageEvent = event;
-    this.getCompanies(this.pageEvent.pageIndex, this.pageEvent.pageSize);
+    this.getCompanies(this.pageEvent.pageIndex, this.pageEvent.pageSize, this.search);
+  }
+
+  searchCompany(){
+    this.getCompanies( 0, 20, this.search);
   }
 
 

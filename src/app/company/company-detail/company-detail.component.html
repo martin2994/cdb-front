@@ -1,3 +1,20 @@
-<p>
-  company-detail works!
-</p>
+<mat-card class="example-card" *ngIf="company">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">
+      <img [src]="" alt="">
+    </div>
+    <mat-card-title>{{ company.name }}</mat-card-title>
+    <mat-card-subtitle>&nbsp;</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="example-full-width">
+      <mat-form-field>
+        <input matInput placeholder="Recherche d'ordinateur">
+      </mat-form-field>
+      <button mat-raised-button color="warn">Warn</button>
+    </div>
+    <mat-card *ngFor="let computer of computers">
+      {{ computer.name }}
+    </mat-card>
+  </mat-card-content>
+</mat-card>

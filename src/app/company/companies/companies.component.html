@@ -1,19 +1,22 @@
 <div class="container" *ngIf="companies">
 
-  <mat-form-field class="example-full-width">Search &nbsp; Company
+  <mat-form-field class="example-full-width">Search Company :
     <input matInput placeholder="Search" [(ngModel)]="search">
 
     <button mat-raised-button color="primary" (click)="searchCompany()">Search</button>
   </mat-form-field>
 
-  <app-company  *ngFor="let company of companies.results" [company]="company"></app-company>
+  <mat-grid-list cols="1" rowHeight="100px">
 
-  <div>
+      <app-company  *ngFor="let company of companies.results" [company]="company"></app-company>
 
-    <mat-paginator [length]="length"
-                   [pageSize]="pageSize"
-                   [pageSizeOptions]="pageSizeOptions"
-                   (page)="changePagination($event)">
+  </mat-grid-list>
+
+    <mat-paginator
+                 [length]="length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="changePagination($event)">
     </mat-paginator>
 
 

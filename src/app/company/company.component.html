@@ -5,12 +5,19 @@
     <mat-card-subtitle>&nbsp;</mat-card-subtitle>
   </mat-card-header>
 
-  <mat-card-content>
+  <img mat-card-image src="https://www.google.com/search?q=" alt="Logo">
 
+  <mat-card-content>
+    <p>
+      Company infos
+    </p>
   </mat-card-content>
 
   <mat-card-actions >
     <button mat-raised-button color="primary" [routerLink]="['/company',this.company.id]" > See details </button>
+    <button mat-button>ADD</button>
+    <button mat-button>EDIT</button>
+    <button mat-button>DELETE</button>
   </mat-card-actions>
 
 </mat-card>

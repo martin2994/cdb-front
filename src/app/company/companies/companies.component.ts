@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import {Component, OnInit, Input, Output, ViewChild} from '@angular/core';
 import {Company} from '../company.model';
 import {CompanyService} from '../company.service';
 import {PageEvent} from '@angular/material';
 import {Page} from '../../page.model';
+import {animate, keyframes, query, stagger, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-companies',
@@ -22,7 +23,8 @@ export class CompaniesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCompanies(0, this.pageSize, '');
+    this.search = '';
+    this.getCompanies(0, this.pageSize, this.search);
   }
 
   getCompanies(page: number, resultPerPage: number, search: string) {
@@ -39,7 +41,7 @@ export class CompaniesComponent implements OnInit {
   }
 
   searchCompany(){
-    this.getCompanies( 0, 20, this.search);
+    this.getCompanies( 0, this.pageSize, this.search);
   }
 
 

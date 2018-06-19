@@ -10,7 +10,7 @@ import {Page} from '../page.model';
 })
 export class CompanyService {
 
-  private  _baseUrl = 'http://localhost:8086/webservice/company';
+  private  _baseUrl = 'http://localhost:8080/webservice/company';
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +20,10 @@ export class CompanyService {
 
   getCompanyPage( page: number, resultPerPage: number, search: string): Observable<Page<Company>> {
     return this.http.get<Page<Company>>(this._baseUrl + '?page=' + page + '&resultPerPage=' + resultPerPage + '&search=' + search);
+  }
+
+  createCompany(company: Company) {
+    return this.http.post(this._baseUrl, company);
   }
 
 }

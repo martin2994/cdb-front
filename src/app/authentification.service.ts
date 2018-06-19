@@ -14,19 +14,19 @@ export class AuthentificationService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
-    return this.http.post<any>('/api/authenticate', { username: username, password: password })
-      .pipe(map(user => {
-        if (user && user.token) {
+    return this.http.post<any>('http://localhost:8080/webservice/auth', { username: username, password: password })
+      .pipe(map(tokenRequest => {
+        if (tokenRequest) {
           this.loginEvent.emit();
-          localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('token', JSON.stringify(tokenRequest.token));
         }
 
-        return user;
+        return tokenRequest;
       }));
   }
 
   logout() {
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
   }
 
   getUrl(): string {

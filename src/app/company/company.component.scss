@@ -1,0 +1,16 @@
+.example-card {
+  max-width: 20%;
+  max-height: 20%;
+  display: inline-flex;
+  flex-flow: row wrap;
+  background: grey;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+.example-header-image {
+  background-color: lightslategray;
+  background-size: cover;
+}

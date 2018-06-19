@@ -19,8 +19,8 @@ export class CompanyService {
     return this.http.get<Company[]>(this._baseUrl);
   }
 
-  getCompanyPage( page: number, resultPerPage: number): Observable<Page<Company>> {
-    return this.http.get<Page<Company>>(this._baseUrl + '?page=' + page + '&resultPerPage=' + resultPerPage);
+  getCompanyPage( page: number, resultPerPage: number, search: string): Observable<Page<Company>> {
+    return this.http.get<Page<Company>>(this._baseUrl + '?page=' + page + '&resultPerPage=' + resultPerPage + '&search=' + search);
   }
 
 

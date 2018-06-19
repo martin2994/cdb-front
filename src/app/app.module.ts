@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,8 +13,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthentificationService} from './authentification.service';
 import {AuthGuard} from './auth.guard';
-import {JwtInterceptor} from './mock-auth/jwt.interceptors';
-import {fakeBackendProvider} from './mock-auth/fake-backend';
+import {JwtInterceptor} from './authenfication/jwt.interceptors';
 
 @NgModule({
   declarations: [
@@ -40,8 +39,7 @@ import {fakeBackendProvider} from './mock-auth/fake-backend';
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
-    },
-    fakeBackendProvider
+    }
   ],
   bootstrap: [AppComponent]
 })

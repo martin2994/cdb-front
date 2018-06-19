@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import {Component, OnInit, Input, Output, ViewChild} from '@angular/core';
 import {Company} from '../company.model';
 import {CompanyService} from '../company.service';
-import {PageEvent} from '@angular/material';
+import {MatPaginator, PageEvent} from '@angular/material';
 import {Page} from '../../page.model';
+import {animate, keyframes, query, stagger, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-companies',
@@ -14,18 +15,22 @@ export class CompaniesComponent implements OnInit {
   companies: Page<Company>;
   length;
   pageSize = 10;
-  pageSizeOptions = [5, 10, 25, 100];
+  pageSizeOptions = [4, 10, 20, 100];
   pageEvent: PageEvent;
+  search: string;
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
 
   constructor(private companyService: CompanyService) {
   }
 
   ngOnInit() {
-    this.getCompanies(0, this.pageSize);
+    this.search = '';
+    this.getCompanies(0, this.pageSize, this.search);
   }
 
-  getCompanies(page: number, resultPerPage: number) {
-    this.companyService.getCompanyPage(page, resultPerPage).subscribe(company => {
+  getCompanies(page: number, resultPerPage: number, search: string) {
+    this.companyService.getCompanyPage(page, resultPerPage, search).subscribe(company => {
       this.companies = company;
       this.pageSize = company.resultPerPage;
       this.length = company.numberOfElements;
@@ -34,8 +39,12 @@ export class CompaniesComponent implements OnInit {
 
   changePagination(event) {
     this.pageEvent = event;
-    this.getCompanies(this.pageEvent.pageIndex, this.pageEvent.pageSize);
+    this.getCompanies(this.pageEvent.pageIndex, this.pageEvent.pageSize, this.search);
   }
 
+  searchCompany(){
+    this.paginator._pageIndex = 0;
+    this.getCompanies( 0, this.pageSize, this.search);
+  }
 
 }

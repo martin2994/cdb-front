@@ -23,7 +23,6 @@ export class CompanyService {
     return this.http.get<Page<Company>>(this._baseUrl + '?page=' + page + '&resultPerPage=' + resultPerPage + '&search=' + search);
   }
 
-
   getCompany(id: string): Observable<Company> {
     return this.http.get<Company>(`${ this._baseUrl }/${ id }`);
   }
@@ -34,5 +33,8 @@ export class CompanyService {
 
   getCountByCompanyId(id: string): Observable<number> {
     return this.http.get<number>(`${ this._baseUrl }/${ id }/count`);
+  }
+  deleteCompany(id: number){
+    return this.http.delete(`${ this._baseUrl }/${ id }`);
   }
 }

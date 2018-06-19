@@ -47,4 +47,8 @@ export class CompaniesComponent implements OnInit {
     this.getCompanies( 0, this.pageSize, this.search);
   }
 
+  onDelete(company: Company){
+    this.companies.results.splice(this.companies.results.indexOf(company),1);
+  }
+
 }

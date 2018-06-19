@@ -9,6 +9,7 @@ import {CustomMaterialModule} from '../custom-material/custom-material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {MatPaginatorModule} from '@angular/material';
+import { ComputersComponent } from './company-detail/computers/computers.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import {MatPaginatorModule} from '@angular/material';
     CompaniesComponent,
     CompanyDetailComponent,
     CompanyCreateComponent,
-    CompanyUpdateComponent
+    CompanyUpdateComponent,
+    ComputersComponent
   ]
 })
 export class CompanyModule { }

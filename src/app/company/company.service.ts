@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Company} from './company.model';
 import {Observable, of} from 'rxjs';
-import {count} from 'rxjs/operators';
 import {Page} from '../page.model';
 
 @Injectable({
@@ -10,7 +9,7 @@ import {Page} from '../page.model';
 })
 export class CompanyService {
 
-  private  _baseUrl = 'http://localhost:8086/webservice/company';
+  private  _baseUrl = 'http://localhost:8080/webservice/company';
 
   constructor(private http: HttpClient) { }
 

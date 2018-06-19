@@ -1,7 +1,7 @@
 export class Computer {
   id: number;
   name: string;
-  introduced: Date;
-  discontinued: Date;
+  introduced: string;
+  discontinued: string;
   company_id: number;
 }

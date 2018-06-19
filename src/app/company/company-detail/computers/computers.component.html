@@ -1,0 +1,42 @@
+<mat-expansion-panel *ngIf="computer">
+
+
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ computer.name }}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <form [formGroup]="editForm">
+
+  <mat-card-content>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Nom" name="name" formControlName="name" value="{{ computer.name }}">
+    </mat-form-field>
+
+    &nbsp;
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Lancement" name="introduced" formControlName="introduced" value="{{ computer.introduced | date:'yyyy-MM-dd' }}">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+
+    &nbsp;
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker2" placeholder="Arrêt" name="discontinued" formControlName="discontinued" [min]="editForm.controls.introduced.value"  value="{{ computer.discontinued | date:'yyyy-MM-dd' }}">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2 startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+
+    &nbsp;
+
+    <button mat-raised-button color="primary" (click)="submit()">Confirmer</button>
+
+  </mat-card-content>
+
+  </form>
+
+</mat-expansion-panel>

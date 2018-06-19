@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="dark-primary">
   <span [routerLink]="['/companies']">Computer-Database</span>
   <span class="fill-space" [routerLink]="['/company/create']" *ngIf="connected">&nbsp;&#8226; Create company</span>
   <button class="mat-raised-button mat-warn" flex (click)="logout()" *ngIf="connected">Logout</button>

@@ -22,4 +22,8 @@ export class CompanyService {
     return this.http.get<Page<Company>>(this._baseUrl + '?page=' + page + '&resultPerPage=' + resultPerPage + '&search=' + search);
   }
 
+  deleteCompany(id: number){
+    return this.http.delete(`${ this._baseUrl }/${ id }`);
+  }
+
 }

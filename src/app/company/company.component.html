@@ -7,12 +7,12 @@
   <img mat-card-image width="40px" height="100px" src='http://www.lepoint.fr/images/2017/10/27/10978762lpw-10979123-article-jpg_4669854_980x426.jpg' alt="Logo" >
 
   <mat-card-actions >
-    <button mat-raised-button color="primary" [routerLink]="['/company',this.company.id]" >
+    <button mat-raised-button color="accent" [routerLink]="['/company',this.company.id]" >
       <i class="material-icons">
       visibility
     </i>
     </button>
-    <button mat-button>
+    <button mat-button color="warn" (click)="deleteCompany()" >
       <i class="material-icons">delete_sweep</i>
     </button>
   </mat-card-actions>

@@ -4,8 +4,7 @@
     <mat-card-title>{{ company.name }}</mat-card-title>
   </mat-card-header>
 
-  <img mat-card-image width="40px" height="100px" src='http://www.lepoint.fr/images/2017/10/27/10978762lpw-10979123-article-jpg_4669854_980x426.jpg' alt="Logo" >
-
+  <img mat-card-image width="40px" height="100px" [src]="company.logo" alt="Logo" >
   <mat-card-actions >
     <button mat-raised-button color="accent" [routerLink]="['/company',this.company.id]" >
       <i class="material-icons">

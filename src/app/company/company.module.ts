@@ -8,6 +8,7 @@ import {CompanyDetailComponent} from './company-detail/company-detail.component'
 import {CustomMaterialModule} from '../custom-material/custom-material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import { ComputersComponent } from './company-detail/computers/computers.component';
 import {MatGridListModule, MatPaginatorModule} from '@angular/material';
 
 @NgModule({
@@ -25,7 +26,8 @@ import {MatGridListModule, MatPaginatorModule} from '@angular/material';
     CompaniesComponent,
     CompanyDetailComponent,
     CompanyCreateComponent,
-    CompanyUpdateComponent
+    CompanyUpdateComponent,
+    ComputersComponent
   ]
 })
 export class CompanyModule { }

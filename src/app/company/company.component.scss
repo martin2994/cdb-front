@@ -1,8 +1,16 @@
 .example-card {
-  max-width: 400px;
+  max-width: 20%;
+  max-height: 20%;
+  display: inline-flex;
+  flex-flow: row wrap;
+  background: #1b2c40;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-top: 2%;
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-color: lightslategray;
   background-size: cover;
 }

@@ -1,3 +1,20 @@
-g<p>
-  company-detail works!
-</p>
+<div *ngIf="company" >
+  <mat-card class="custom-card">{{ company.name }}</mat-card>
+  <mat-accordion class="custom-computer-list col-sm-offset-2">
+    <mat-card class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Input">
+      </mat-form-field>
+      <button mat-raised-button color="warn">Rechercher</button>
+    </mat-card>
+    <div *ngFor="let computer of computers">
+      <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
+    </div>
+  </mat-accordion>
+
+  <mat-paginator [length]="length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="pageUpdate($event)">
+  </mat-paginator>
+</div>

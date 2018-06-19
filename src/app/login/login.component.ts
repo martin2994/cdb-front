@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+    localStorage.removeItem('token');
     this.authenticationService.login(this.loginForm.value.username, this.loginForm.value.password)
       .pipe(first())
       .subscribe(

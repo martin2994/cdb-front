@@ -1,23 +1,26 @@
-<div class="container" *ngIf="companies">
+  <div *ngIf="companies" >
 
-  <mat-form-field class="example-full-width">Search Company :
-    <input matInput placeholder="Search" [(ngModel)]="search">
+  <mat-card class="example-container" color="primary" >
 
-    <button mat-raised-button color="primary" (click)="searchCompany()">Search</button>
-  </mat-form-field>
+      <mat-form-field >
+        <input matInput placeholder="Search" [(ngModel)]="search">
+      </mat-form-field>
 
-  <mat-grid-list cols="1" rowHeight="100px">
+      <button mat-raised-button color="accent" (click)="searchCompany()">Search</button>
+      <mat-paginator
+        #paginator
+        [length]="length"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="changePagination($event)">
+      </mat-paginator>
 
-      <app-company  *ngFor="let company of companies.results" [company]="company"></app-company>
+      <button mat-raised-button   color="accent" [routerLink]="['/company/create']">ADD</button>
 
+  </mat-card>
+
+  <mat-grid-list cols="2" class="main-contener">
+    <app-company  *ngFor="let company of companies.results" [company]="company" (deleteEvent)="onDelete($event)"></app-company>
   </mat-grid-list>
-
-    <mat-paginator
-                 [length]="length"
-                 [pageSize]="pageSize"
-                 [pageSizeOptions]="pageSizeOptions"
-                 (page)="changePagination($event)">
-    </mat-paginator>
-
 
 </div>

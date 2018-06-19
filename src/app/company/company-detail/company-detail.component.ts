@@ -1,10 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Company} from '../company.model';
 import {CompanyService} from '../company.service';
 import {ActivatedRoute} from '@angular/router';
 import {Computer} from './computers/computer.model';
 import {DateAdapter, PageEvent} from '@angular/material';
 import {FormControl, FormGroup} from '@angular/forms';
+import {ComputerService} from './computers/computer.service';
 
 @Component({
   selector: 'app-company-detail',
@@ -23,7 +24,7 @@ export class CompanyDetailComponent implements OnInit {
   pageSizeOptions = [5, 10];
   pageSizeChanged = false;
 
-  constructor(private companyService: CompanyService, private route: ActivatedRoute, private adapter: DateAdapter<any>) {
+  constructor(private companyService: CompanyService, private computerService: ComputerService, private route: ActivatedRoute, private adapter: DateAdapter<any>) {
     this.adapter.setLocale('fr');
   }
 
@@ -65,7 +66,13 @@ export class CompanyDetailComponent implements OnInit {
       0, this.pageSize).subscribe(computers => {
         this.computers = computers;
     });
+  }
 
+  delete(computer) {
+    this.companyService.getComputerByCompanyId(this.route.snapshot.paramMap.get('id'),
+      0, this.pageSize).subscribe(computers => {
+      this.computers = computers;
+    });
   }
 
 }

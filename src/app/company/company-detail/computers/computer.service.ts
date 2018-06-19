@@ -12,7 +12,11 @@ export class ComputerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  updateComputer(computer: Computer) {
+  update(computer: Computer) {
     return this.httpClient.put(`${ this._baseUrl }/${ computer.id }`, computer);
+  }
+
+  remove(computer: Computer) {
+    return this.httpClient.delete(`${ this._baseUrl }/${ computer.id }`);
   }
 }

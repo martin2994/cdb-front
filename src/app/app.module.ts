@@ -14,13 +14,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthentificationService} from './authentification.service';
 import {AuthGuard} from './auth.guard';
 import {JwtInterceptor} from './authenfication/jwt.interceptors';
+import { SignupComponent } from './login/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

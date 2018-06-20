@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Company} from './company.model';
 import {CompanyService} from './company.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-company',
@@ -13,7 +14,18 @@ export class CompanyComponent implements OnInit {
   company: Company;
   @Output() deleteEvent: EventEmitter<Company> = new EventEmitter();
 
+<<<<<<< HEAD
+
   constructor(private companyService: CompanyService) { }
+=======
+  constructor(private companyService: CompanyService, private translate: TranslateService) {
+    translate.addLangs(['en', 'fr']);
+    translate.setDefaultLang('en');
+
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
+  }
+>>>>>>> feature
 
   ngOnInit() {
   }
@@ -21,6 +33,10 @@ export class CompanyComponent implements OnInit {
   deleteCompany(){
     this.companyService.deleteCompany(this.company.id).subscribe();
     this.deleteEvent.emit(this.company);
+  }
+
+  errorImage() {
+    this.company.logo = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
   }
 
 }

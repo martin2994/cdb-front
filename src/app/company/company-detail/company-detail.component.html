@@ -34,24 +34,4 @@
       <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
     </div>
   </div>
-
-  <!--<mat-card class="custom-card">{{ company.name }}</mat-card>
-  <mat-accordion class="custom-computer-list col-sm-offset-2">
-    <mat-card class="example-container">
-      <button mat-raised-button color="warn" *ngIf='search_mod' (click)="reinitializeList()">Réinitialisation</button>
-      <mat-form-field>
-        <input matInput placeholder="Input" [(ngModel)]="search" pattern=".{1,}" required>
-      </mat-form-field>
-      <button mat-raised-button color="warn" (click)="searchComputers()">Rechercher</button>
-    </mat-card>
-    <div  *ngFor="let computer of computers.results">
-      <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
-    </div>
-  </mat-accordion>
-
-  <mat-paginator [length]="length"
-                 [pageSize]="pageSize"
-                 [pageSizeOptions]="pageSizeOptions"
-                 (page)="pageUpdate($event)">
-  </mat-paginator> -->
 </div>

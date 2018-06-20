@@ -7,6 +7,7 @@ import {CompanyUpdateComponent} from './company/company-update/company-update.co
 import {CompanyDetailComponent} from './company/company-detail/company-detail.component';
 import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './auth.guard';
+import {SignupComponent} from './login/signup/signup.component';
 
 const routes: Routes = [
   { path: 'companies', component: CompaniesComponent, pathMatch: 'full', canActivate: [AuthGuard] },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'company/:id/update', component: CompanyUpdateComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'company/:id', component: CompanyDetailComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent, pathMatch: 'full'},
+  { path: 'signup', component: SignupComponent, pathMatch: 'full'},
   { path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 

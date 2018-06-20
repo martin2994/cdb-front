@@ -13,6 +13,7 @@ export class CompanyComponent implements OnInit {
   company: Company;
   @Output() deleteEvent: EventEmitter<Company> = new EventEmitter();
 
+
   constructor(private companyService: CompanyService) { }
 
   ngOnInit() {
@@ -21,6 +22,10 @@ export class CompanyComponent implements OnInit {
   deleteCompany(){
     this.companyService.deleteCompany(this.company.id).subscribe();
     this.deleteEvent.emit(this.company);
+  }
+
+  errorImage() {
+    this.company.logo = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
   }
 
 }

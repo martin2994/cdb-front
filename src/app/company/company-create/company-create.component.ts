@@ -15,25 +15,25 @@ export class CompanyCreateComponent implements OnInit {
 
   company = new Company();
   companyForm: FormGroup;
+  display = false;
 
-  constructor(private companyService: CompanyService, private fb: FormBuilder, public snackBar: MatSnackBar) {
+  constructor(private companyService: CompanyService, private fb: FormBuilder, public snackBar: MatSnackBar) {}
+
+  ngOnInit() {
     this.createForm();
   }
 
-  ngOnInit() {
-  }
-
   onSubmit() {
-    this.company.name = this.companyForm.get('name').value
-
+    this.company.name = this.companyForm.get('name').value;
+    this.company.logo = this.companyForm.get('logo').value;
     this.companyService.createCompany(this.company).subscribe(() => this.addSucceed(), () => this.addFail());
-
   }
   createForm() {
     this.companyForm = this.fb.group({
       name: ['', Validators.required],
-      picture: ['']
+      logo: ['']
     });
+    this.displayLogo();
   }
   addSucceed() {
     const config = new MatSnackBarConfig();
@@ -50,5 +50,15 @@ export class CompanyCreateComponent implements OnInit {
     config.duration = 2000;
     config.panelClass = ['fail'];
     this.snackBar.open('Erreur d ajout', 'OK', config);
+  }
+  displayLogo() {
+    if (this.companyForm.value.logo) {
+      this.display = true;
+    } else {
+      this.display = false;
+    }
+  }
+  hideLogo() {
+    this.display = false;
   }
 }

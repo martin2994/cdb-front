@@ -11,9 +11,9 @@
         </mat-form-field>
 
         <mat-form-field class="full-width">
-          <input matInput placeholder="URL de l'image" formControlName="picture">
+          <input matInput placeholder="URL de l'image" formControlName="logo" (change)="displayLogo()">
         </mat-form-field>
-
+        <img *ngIf="display" mat-card-image [src]="companyForm.value.logo" (error)="hideLogo()">
         <button type="submit" class="button" mat-raised-button color="primary">Ajouter</button>
       </form>
     </mat-card-content>

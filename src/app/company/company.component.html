@@ -1,19 +1,19 @@
 <mat-card class="example-card" >
   <mat-card-header>
-    <div ></div>
     <mat-card-title>{{ company.name }}</mat-card-title>
   </mat-card-header>
 
-  <img mat-card-image width="40px" height="100px" [src]="company.logo" alt="Logo" >
+    <img mat-card-image width="50" height="250" [src]="company.logo" (error)="errorImage()">
+
+
   <mat-card-actions >
     <button mat-raised-button color="accent" [routerLink]="['/company',this.company.id]" >
       <i class="material-icons">
-      visibility
-    </i>
+        visibility
+      </i>
     </button>
     <button mat-button color="warn" (click)="deleteCompany()" >
       <i class="material-icons">delete_sweep</i>
     </button>
   </mat-card-actions>
-
 </mat-card>

@@ -25,9 +25,12 @@ export class CompanyService {
     return this.http.get<Page<Company>>(this._baseUrl + '?page=' + page + '&resultPerPage=' + resultPerPage + '&search=' + search);
   }
 
-
   createCompany(company: Company) {
     return this.http.post(this._baseUrl, company);
+  }
+
+  updateCompany(company: Company){
+    return this.http.put(`${ this._baseUrl }/${ company.id }`, company);
   }
 
   getCompany(id: string): Observable<Company> {

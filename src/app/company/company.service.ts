@@ -34,8 +34,12 @@ export class CompanyService {
     return this.http.get<Company>(`${ this._baseUrl }/${ id }`);
   }
 
-  getComputerByCompanyId(id: string, page: number, number_of_elems: number): Observable<Computer[]> {
-    return this.http.get<Computer[]>(`${ this._baseUrl }/${ id }/computers?page=${page}&resultPerPage=${number_of_elems}`);
+  getComputerByCompanyId(id: string, page: number, number_of_elems: number): Observable<Page<Computer>> {
+    return this.http.get<Page<Computer>>(`${ this._baseUrl }/${ id }/computers?page=${page}&resultPerPage=${number_of_elems}`);
+  }
+
+  findComputerByCompanyId(id: string, page: number, number_of_elems: number, search: string): Observable<Page<Computer>> {
+    return this.http.get<Page<Computer>>(`${ this._baseUrl }/${ id }/computers?page=${page}&resultPerPage=${number_of_elems}&search=${search}`);
   }
 
   getCountByCompanyId(id: string): Observable<number> {

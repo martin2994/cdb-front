@@ -1,13 +1,50 @@
-<div *ngIf="company" >
-  <mat-card class="custom-card">{{ company.name }}</mat-card>
+<div *ngIf="computers" >
+
+  <mat-card color="primary"
+  >
+
+    <h2 style="margin-top: 1%; height: 1%;" class="col-sm-offset-4">{{ company.name }}</h2>
+
+    <div class="col-sm-offset-4">
+      <button mat-raised-button color="warn" *ngIf='search_mod' (click)="reinitializeList()">Réinitialisation</button>
+
+      &nbsp;
+      &nbsp;
+
+      <mat-form-field >
+        <input matInput placeholder="Input" [(ngModel)]="search" pattern=".{1,}" required>
+      </mat-form-field>
+
+      &nbsp;
+      &nbsp;
+
+      <button mat-raised-button color="warn" (click)="searchComputers()">Rechercher</button>
+    </div>
+
+    <mat-paginator style="float: right;" [length]="length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="pageUpdate($event)">
+    </mat-paginator>
+
+  </mat-card>
+
+  <div class="computerList">
+    <div  *ngFor="let computer of computers.results" class="custom-computer-display">
+      <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
+    </div>
+  </div>
+
+  <!--<mat-card class="custom-card">{{ company.name }}</mat-card>
   <mat-accordion class="custom-computer-list col-sm-offset-2">
     <mat-card class="example-container">
+      <button mat-raised-button color="warn" *ngIf='search_mod' (click)="reinitializeList()">Réinitialisation</button>
       <mat-form-field>
-        <input matInput placeholder="Input">
+        <input matInput placeholder="Input" [(ngModel)]="search" pattern=".{1,}" required>
       </mat-form-field>
-      <button mat-raised-button color="warn">Rechercher</button>
+      <button mat-raised-button color="warn" (click)="searchComputers()">Rechercher</button>
     </mat-card>
-    <div *ngFor="let computer of computers">
+    <div  *ngFor="let computer of computers.results">
       <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
     </div>
   </mat-accordion>
@@ -16,5 +53,5 @@
                  [pageSize]="pageSize"
                  [pageSizeOptions]="pageSizeOptions"
                  (page)="pageUpdate($event)">
-  </mat-paginator>
+  </mat-paginator> -->
 </div>

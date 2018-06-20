@@ -7,7 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CompanyModule} from './company/company.module';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {CustomMaterialModule} from './custom-material/custom-material.module';
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -15,6 +15,13 @@ import {AuthentificationService} from './authentification.service';
 import {AuthGuard} from './auth.guard';
 import {JwtInterceptor} from './authenfication/jwt.interceptors';
 import { SignupComponent } from './login/signup/signup.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {MatChipsModule} from '@angular/material/chips';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 @NgModule({
   declarations: [
@@ -32,7 +39,15 @@ import { SignupComponent } from './login/signup/signup.component';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    CompanyModule
+    CompanyModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    MatChipsModule
   ],
   providers: [
     AuthGuard,
@@ -45,4 +60,5 @@ import { SignupComponent } from './login/signup/signup.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

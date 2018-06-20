@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule, MatSnackBarModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatSnackBarModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -22,7 +22,8 @@ import {MatNativeDateModule} from '@angular/material';
     MatExpansionModule,
     MatPaginatorModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule
   ],
   exports: [
     MatToolbarModule,
@@ -34,7 +35,8 @@ import {MatNativeDateModule} from '@angular/material';
     MatExpansionModule,
     MatPaginatorModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule
   ],
   declarations: [
   ]

@@ -19,13 +19,6 @@ export class CompanyComponent implements OnInit {
   ngOnInit() {
   }
 
-  deleteCompany(){
-    this.companyService.deleteCompany(this.company.id).subscribe();
-    this.deleteEvent.emit(this.company);
-  }
 
-  errorImage() {
-    this.company.logo = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
-  }
 
 }

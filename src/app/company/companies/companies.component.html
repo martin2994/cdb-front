@@ -1,12 +1,13 @@
   <div *ngIf="companies" >
-
   <mat-card class="example-container" color="primary" >
 
       <mat-form-field >
-        <input matInput placeholder="Search" [(ngModel)]="search">
+        <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
       </mat-form-field>
 
-      <button mat-raised-button color="accent" (click)="searchCompany()">Search</button>
+      <button mat-raised-button color="accent" (click)="searchCompany()"><i class="material-icons">
+        search
+      </i></button>
       <mat-paginator
         #paginator
         [length]="length"
@@ -15,7 +16,7 @@
         (page)="changePagination($event)">
       </mat-paginator>
 
-      <button mat-raised-button   color="accent" [routerLink]="['/company/create']">ADD</button>
+      <button mat-raised-button   color="accent" [routerLink]="['/company/create']">{{ 'SEARCH-BAR.ADD' | translate }}</button>
 
   </mat-card>
 

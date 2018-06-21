@@ -48,6 +48,13 @@
     "DISCOUNTED": "Arrêt",
     "EDIT": "Confirmer",
     "DELETE": "Supprimer"
+  },
+
+  "PAGINATOR": {
+    "items_per_page": "Nombre d'éléments par page",
+    "next_page": "Page suivante",
+    "previous_page": "Page précedente",
+    "of": "sur"
   }
 
 }

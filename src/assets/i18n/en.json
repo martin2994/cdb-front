@@ -48,6 +48,14 @@
     "DISCOUNTED": "Discounted",
     "EDIT": "Edit",
     "DELETE": "Delete"
+  },
+
+  "PAGINATOR": {
+    "items_per_page": "Items per page",
+    "next_page": "Next page",
+    "previous_page": "Previous page",
+    "of": "of"
+
   }
 
 }

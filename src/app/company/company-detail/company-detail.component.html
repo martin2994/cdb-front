@@ -1,33 +1,5 @@
 <div *ngIf="computers" >
 
-  <!--<mat-card color="primary">
-
-    <h2 style="margin-top: 1%; height: 1%;" class="col-sm-offset-4">{{ company.name }}</h2>
-
-    <div class="col-sm-offset-4">
-      <button mat-raised-button color="warn" *ngIf='search_mod' (click)="reinitializeList()">Réinitialisation</button>
-
-      &nbsp;
-      &nbsp;
-
-      <mat-form-field >
-        <input matInput placeholder="Input" [(ngModel)]="search" pattern=".{1,}" required>
-      </mat-form-field>
-
-      &nbsp;
-      &nbsp;
-
-      <button mat-raised-button color="warn" (click)="searchComputers()">Rechercher</button>
-    </div>
-
-    <mat-paginator style="float: right;" [length]="length"
-                   [pageSize]="pageSize"
-                   [pageSizeOptions]="pageSizeOptions"
-                   (page)="pageUpdate($event)">
-    </mat-paginator>
-
-  </mat-card>-->
-
   <mat-toolbar class="toolbar">
   <span class="toolbar-element">
 
@@ -50,7 +22,7 @@
     </mat-form-field>
     </span>
     <span class="toolbar-element">
-  <button mat-raised-button color="accent" (click)="searchComputers()">Search</button>
+  <button mat-raised-button color="accent" (click)="searchComputers()">{{ 'SEARCH-BAR.SEARCH' | translate }}</button>
 </span>
     <span class="toolbar-element">
   <mat-paginator style="float: right;" [length]="length"

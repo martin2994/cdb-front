@@ -17,3 +17,55 @@
   margin-left: 20%;
   margin-top: 5%;
 }
+
+.container {
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.toolbar {
+  display: inline-flex;
+  height: 10%;
+}
+
+.containerNavigator {
+  display: inline-flex;
+}
+
+.mat-paginator {
+  height: 1%;
+  display: inline-flex;
+}
+
+.main-container{
+  margin-left: 100px;
+
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+.toolbar-element {
+  padding-right: 1%;
+  padding-bottom: 1%;
+}
+
+.tile-header {
+  font-family: "DejaVu Sans";
+  background: black;
+}
+
+.mat-grid-tile .mat-grid-tile-footer, .mat-grid-tile .mat-grid-tile-header {
+  background: rgba(0,0,0,0.8);
+}
+
+
+.mat-grid-tile .mat-grid-tile-footer>*, .mat-grid-tile .mat-grid-tile-header>* {
+  font-size: 18px;
+}
+
+.image-container {
+  margin: 48px;
+}
+

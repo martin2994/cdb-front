@@ -5,19 +5,25 @@
     </mat-card-header>
     <form [formGroup]="signupForm" (submit)="signUp()">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Username" formControlName="username" >
+        <input matInput placeholder="Username" formControlName="username" (keyup)="isExist()">
+        <mat-error>
+          Username is required
+        </mat-error>
       </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" type="password" formControlName="password" (keyup)="matchValidator()" >
+          <input matInput placeholder="Password" type="password" formControlName="password">
+          <mat-error>
+            Please enter a password with a least 7 characters
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Confirm password" type="password" formControlName="confirm_password" (keyup)="matchValidator()" >
+          <input matInput placeholder="Confirm password" type="password" formControlName="confirm_password">
+          <mat-error>
+            The two passwords aren't the same
+          </mat-error>
         </mat-form-field>
-        <div class="error" *ngIf="errorPassword">
-          The two passwords aren't the same
-        </div>
       <mat-card-actions>
-        <button type="submit" mat-raised-button color="primary">Sign Up</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!signupForm.valid || !validUsername || errorPassword">Sign Up</button>
       </mat-card-actions>
     </form>
   </mat-card>

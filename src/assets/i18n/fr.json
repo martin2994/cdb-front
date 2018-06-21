@@ -7,5 +7,14 @@
   "SEARCH-BAR": {
     "SEARCH": "Rechercher",
     "ADD": "AJOUTER"
-  }
+  },
+  "SAVE-COMPANY": {
+  "TITLE": "Ajouter une entreprise",
+    "TITLE-UPDATE": "Modifier une entreprise",
+  "FIELD-NAME": "Nom",
+  "NAME-REQUIRED-ERROR": "Le nom est obligatoire",
+  "FIELD-IMAGE-URL": "URL de l'image",
+    "BUTTON-SAVE": "Enregidtrer"
+}
+
 }

@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private _baseUrl = 'http://localhost:8086/webservice/user';
+  private _baseUrl = 'http://localhost:8080/webservice/user';
 
   createUser(user: User) {
     return this.http.post(this._baseUrl, user);

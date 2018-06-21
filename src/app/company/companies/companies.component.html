@@ -29,7 +29,7 @@
 <div *ngIf="companies" class="container">
   <mat-grid-list cols="4" [gutterSize]=20 *ngIf="!checked">
 
-    <mat-grid-tile *ngFor="let company of companies.results">
+    <mat-grid-tile *ngFor="let company of companies.results" @companyAnim>
       <mat-grid-tile-header  class="tile-header">
         <span class="text-tile-header">{{company.name}}</span>
       </mat-grid-tile-header>
@@ -51,7 +51,7 @@
 
   <mat-list class="list-container" *ngIf="checked">
     <h3 mat-subheader >Companies</h3>
-    <mat-list-item *ngFor="let company of companies.results; last as last">
+    <mat-list-item *ngFor="let company of companies.results; last as last" @companyAnim>
       <img matListAvatar [src]="company.logo" [routerLink]="['/company',company.id]" alt="company.name" onerror="this.src='https://www.freeiconspng.com/uploads/no-image-icon-15.png'">
       <h3 matLine> {{company.name}} </h3>
       <span class="fill-space"></span>

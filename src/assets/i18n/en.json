@@ -17,7 +17,8 @@
     "FIELD-NAME": "Name",
     "NAME-REQUIRED-ERROR": "Name is required",
     "FIELD-IMAGE-URL": "Image URL",
-    "BUTTON-SAVE": "Save"
+    "BUTTON-SAVE": "Save",
+    "GO-BACK": "Cancel"
   },
 
   "LOGIN": {

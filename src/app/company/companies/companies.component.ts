@@ -3,11 +3,36 @@ import {Company} from '../company.model';
 import {CompanyService} from '../company.service';
 import {MatPaginator, PageEvent} from '@angular/material';
 import {Page} from '../../page.model';
+import {animate, keyframes, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
-  styleUrls: ['./companies.component.scss']
+  styleUrls: ['./companies.component.scss'],
+  animations: [
+    trigger('companyAnim', [
+      transition(':enter', [
+        style({
+          opacity: '0',
+          height: '0'
+        }),
+        animate('.5s ease-out', style({
+          opacity: '1',
+          height: '*'
+        })),
+      ]),
+      transition(':leave', [
+        style({
+          height: '*',
+          opacity: '1'
+        }),
+        animate('.5s ease-out', style({
+          height: '0',
+          opacity: '0'
+        }))
+      ])
+    ])
+  ]
 })
 export class CompaniesComponent implements OnInit {
 

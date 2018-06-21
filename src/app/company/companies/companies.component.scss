@@ -39,8 +39,8 @@ mat-grid-tile {
 img {
   height: auto;
   width: 100%;
-  max-height: -webkit-fill-available;
   display:block;
+
 }
 
 .tile-header {
@@ -59,4 +59,16 @@ img {
 
 .image-container {
   margin: 48px;
+}
+.list-container{
+  margin: 10%;
+  margin-top: 2%;
+}
+.buttonList {
+  margin-left: 1%;
+}
+
+.mat-subheader {
+  font-size: 36px;
+  margin-bottom: 5%;
 }

@@ -1,26 +1,32 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Company} from '../company.model';
 import {CompanyService} from '../company.service';
 import {ActivatedRoute} from '@angular/router';
 import {Computer} from './computers/computer.model';
 import {DateAdapter, PageEvent} from '@angular/material';
-import {FormControl, FormGroup} from '@angular/forms';
 import {ComputerService} from './computers/computer.service';
+import {isNullOrUndefined} from 'util';
+import {Page} from '../../page.model';
 
 @Component({
   selector: 'app-company-detail',
   templateUrl: './company-detail.component.html',
-  styleUrls: ['./company-detail.component.scss']
+  styleUrls: ['./company-detail.component.scss',
+    "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css",
+  ]
 })
 export class CompanyDetailComponent implements OnInit {
 
   company: Company;
-  @Input() computers: Computer[];
+  computers: Page<Computer>;
+
+  search_mod = false;
+  search: string;
 
   pageEvent: PageEvent;
 
   length: number;
-  pageSize = 5;
+  pageSize = 10;
   pageSizeOptions = [5, 10];
   pageSizeChanged = false;
 
@@ -42,12 +48,21 @@ export class CompanyDetailComponent implements OnInit {
 
     console.log(event.pageIndex + ' - ' + event.pageSize + ' - ' + this.pageSize);
 
-    this.companyService.getComputerByCompanyId(this.route.snapshot.paramMap.get('id'),
-      (this.pageSizeChanged === false) ? event.pageIndex : 0, event.pageSize).subscribe(computers => {
-      computers.map(computer => {
+    if (this.search_mod) {
+      this.companyService.findComputerByCompanyId(this.route.snapshot.paramMap.get('id'),
+        (this.pageSizeChanged === false) ? event.pageIndex : 0, event.pageSize, this.search).subscribe(computers => {
         this.computers = computers;
+        this.pageSize = computers.resultPerPage;
+        this.length = computers.numberOfElements;
       });
-    });
+    } else {
+      this.companyService.getComputerByCompanyId(this.route.snapshot.paramMap.get('id'),
+        (this.pageSizeChanged === false) ? event.pageIndex : 0, event.pageSize).subscribe(computers => {
+        this.computers = computers;
+        this.pageSize = computers.resultPerPage;
+        this.length = computers.numberOfElements;
+      });
+    }
 
   }
 
@@ -56,15 +71,35 @@ export class CompanyDetailComponent implements OnInit {
       this.company = company;
     });
 
-    this.companyService.getCountByCompanyId(this.route.snapshot.paramMap.get('id')).subscribe( count => {
-      this.length = count;
-      console.log(count);
-
-    });
-
     this.companyService.getComputerByCompanyId(this.route.snapshot.paramMap.get('id'),
       0, this.pageSize).subscribe(computers => {
         this.computers = computers;
+        this.pageSize = computers.resultPerPage;
+        this.length = computers.numberOfElements;
+    });
+  }
+
+  searchComputers() {
+    if(!isNullOrUndefined(this.search) && this.search.length > 0){
+      this.search_mod = true;
+      console.log(this.search);
+      this.companyService.findComputerByCompanyId(this.route.snapshot.paramMap.get('id'),
+         0, this.pageSize, this.search).subscribe(computers => {
+        this.computers = computers;
+        this.pageSize = computers.resultPerPage;
+        this.length = computers.numberOfElements;
+      });
+    }
+  }
+
+  reinitializeList() {
+    this.search_mod = false;
+    this.search = "";
+    this.companyService.getComputerByCompanyId(this.route.snapshot.paramMap.get('id'),
+       0, this.pageSize).subscribe(computers => {
+      this.computers = computers;
+      this.pageSize = computers.resultPerPage;
+      this.length = computers.numberOfElements;
     });
   }
 
@@ -72,6 +107,8 @@ export class CompanyDetailComponent implements OnInit {
     this.companyService.getComputerByCompanyId(this.route.snapshot.paramMap.get('id'),
       0, this.pageSize).subscribe(computers => {
       this.computers = computers;
+      this.pageSize = computers.resultPerPage;
+      this.length = computers.numberOfElements;
     });
   }
 

@@ -1,20 +1,37 @@
-<div *ngIf="company" >
-  <mat-card class="custom-card">{{ company.name }} </mat-card>
-  <mat-accordion class="custom-computer-list col-sm-offset-2">
-    <mat-card class="example-container">
-      <mat-form-field>
-        <input matInput placeholder="Input">
+<div *ngIf="computers" >
+
+  <mat-card color="primary"
+  >
+
+    <h2 style="margin-top: 1%; height: 1%;" class="col-sm-offset-4">{{ company.name }}</h2>
+
+    <div class="col-sm-offset-4">
+      <button mat-raised-button color="warn" *ngIf='search_mod' (click)="reinitializeList()">Réinitialisation</button>
+
+      &nbsp;
+      &nbsp;
+
+      <mat-form-field >
+        <input matInput placeholder="Input" [(ngModel)]="search" pattern=".{1,}" required>
       </mat-form-field>
-      <button mat-raised-button color="warn">Rechercher</button>
-    </mat-card>
-    <div *ngFor="let computer of computers">
+
+      &nbsp;
+      &nbsp;
+
+      <button mat-raised-button color="warn" (click)="searchComputers()">Rechercher</button>
+    </div>
+
+    <mat-paginator style="float: right;" [length]="length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="pageUpdate($event)">
+    </mat-paginator>
+
+  </mat-card>
+
+  <div class="computerList">
+    <div  *ngFor="let computer of computers.results" class="custom-computer-display">
       <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
     </div>
-  </mat-accordion>
-
-  <mat-paginator [length]="length"
-                 [pageSize]="pageSize"
-                 [pageSizeOptions]="pageSizeOptions"
-                 (page)="pageUpdate($event)">
-  </mat-paginator>
+  </div>
 </div>

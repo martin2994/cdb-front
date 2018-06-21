@@ -1,7 +1,7 @@
 <mat-toolbar class="toolbar">
   <span class="toolbar-element">
   <mat-form-field >
-    <input matInput placeholder="Search" [(ngModel)]="search">
+    <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
   </mat-form-field>
     </span>
   <span class="toolbar-element">
@@ -18,7 +18,7 @@
     </span>
   <span class="fill-space"></span>
   <span class="toolbar-element">
-  <button mat-raised-button color="accent" [routerLink]="['/company/create']">ADD</button>
+  <button mat-raised-button color="accent" [routerLink]="['/company/create']">{{ 'SEARCH-BAR.ADD' | translate }}</button>
   </span>
 </mat-toolbar>
 

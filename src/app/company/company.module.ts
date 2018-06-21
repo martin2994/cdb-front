@@ -10,6 +10,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { ComputersComponent } from './company-detail/computers/computers.component';
 import {MatGridListModule, MatPaginatorModule} from '@angular/material';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {HttpLoaderFactory} from '../app.module';
+import {HttpClient} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -19,7 +22,14 @@ import {MatGridListModule, MatPaginatorModule} from '@angular/material';
     FormsModule,
     ReactiveFormsModule,
     MatPaginatorModule,
-    MatGridListModule
+    MatGridListModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   declarations: [
     CompanyComponent,

@@ -39,10 +39,12 @@ mat-grid-tile {
 img {
   height: auto;
   width: 100%;
+  max-height: -webkit-fill-available;
   display:block;
 }
 
 .tile-header {
+  font-family: "DejaVu Sans";
   background: black;
 }
 
@@ -52,7 +54,7 @@ img {
 
 
 .mat-grid-tile .mat-grid-tile-footer>*, .mat-grid-tile .mat-grid-tile-header>* {
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .image-container {

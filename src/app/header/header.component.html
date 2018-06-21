@@ -1,5 +1,8 @@
 <mat-toolbar color="dark-primary">
-  <span [routerLink]="['/companies']">Computer-Database</span>
-  <span class="fill-space" [routerLink]="['/company/create']" *ngIf="connected">&nbsp;&#8226; Create company</span>
+  <span class="fill-space" [routerLink]="['/companies']">Computer-Database</span>
+  <div>
+      <input class="language-item" type="image"  (click)="changeLanguage('fr')" src="http://flags.fmcdn.net/data/flags/w580/fr.png" >
+      <input class="language-item" type="image"  (click)="changeLanguage('en')"  src="http://flags.fmcdn.net/data/flags/w580/gb.png" >
+  </div>
   <button class="mat-raised-button mat-warn" flex (click)="logout()" *ngIf="connected">Logout</button>
 </mat-toolbar>

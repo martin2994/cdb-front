@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import {NgModule} from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {CommonModule} from '@angular/common';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule, MatIconModule, MatSnackBarModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -23,7 +24,8 @@ import {MatNativeDateModule} from '@angular/material';
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule
   ],
   exports: [
     MatToolbarModule,
@@ -36,7 +38,8 @@ import {MatNativeDateModule} from '@angular/material';
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule
   ],
   declarations: [
   ]

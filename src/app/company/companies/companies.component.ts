@@ -3,7 +3,6 @@ import {Company} from '../company.model';
 import {CompanyService} from '../company.service';
 import {MatPaginator, PageEvent} from '@angular/material';
 import {Page} from '../../page.model';
-import {animate, keyframes, query, stagger, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-companies',

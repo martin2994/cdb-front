@@ -23,7 +23,9 @@
     "USERNAME": "Nom d'utilsateur",
     "PASSWORD": "Mot de passe",
     "LOGIN": "Se connecter",
-    "SIGN-UP": "S'enregistrer"
+    "SIGN-UP": "S'enregistrer",
+    "ERROR-LOGIN": "Mauvais nom d'utilisateur et/ou mot de passe",
+    "REQUIRED": "Champ obligatoire"
   },
 
   "SIGN-UP": {
@@ -34,7 +36,8 @@
     "PASSWORD-ERROR-MESSAGE": "Le mot de passe doit contenir au moins 7 carractères",
     "PASSWORD-CONFIRMATION": "Confirmer mot de passe",
     "PASSWORD-CONFIRMATION-ERROR-MESSAGE": "Les 2 mots de passe doivent être pareil",
-    "SIGN-UP": "S'enregistrer"
+    "SIGN-UP": "S'enregistrer",
+    "EXISTING-USERNAME": "Nom d'utilisateur deja pris"
 }
 
 }

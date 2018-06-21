@@ -3,9 +3,12 @@
     <mat-card-header>
       <mat-card-title>{{ 'SIGN-UP.TITLE' | translate }}</mat-card-title>
     </mat-card-header>
+    <mat-error class="error" *ngIf="!validUsername">
+      {{ 'SIGN-UP.EXISTING-USERNAME' | translate }}
+    </mat-error>
     <form [formGroup]="signupForm" (submit)="signUp()">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="{{ 'SIGN-UP.USERNAME' | translate }}" formControlName="username" (keyup)="isExist()">
+        <input matInput placeholder="{{ 'SIGN-UP.USERNAME' | translate }}" formControlName="username">
         <mat-error>
           {{ 'SIGN-UP.USERNAME-ERROR-MESSAGE' | translate }}
         </mat-error>
@@ -23,7 +26,7 @@
           </mat-error>
         </mat-form-field>
       <mat-card-actions>
-        <button type="submit" mat-raised-button color="primary" [disabled]="!signupForm.valid || !validUsername || errorPassword">{{ 'SIGN-UP.SIGN-UP' | translate }}</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!signupForm.valid || errorPassword">{{ 'SIGN-UP.SIGN-UP' | translate }}</button>
       </mat-card-actions>
     </form>
   </mat-card>

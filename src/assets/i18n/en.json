@@ -23,7 +23,9 @@
     "USERNAME": "Username",
     "PASSWORD": "Password",
     "LOGIN": "Sign In",
-    "SIGN-UP": "Sign Up"
+    "SIGN-UP": "Sign Up",
+    "ERROR-LOGIN": "Invalid username and/or password",
+    "REQUIRED": "Require field"
   },
 
   "SIGN-UP": {
@@ -34,7 +36,8 @@
     "PASSWORD-ERROR-MESSAGE": "Please enter a password with a least 7 characters",
     "PASSWORD-CONFIRMATION": "Confirm password",
     "PASSWORD-CONFIRMATION-ERROR-MESSAGE": "The two passwords aren't the same",
-    "SIGN-UP": "Sign Up"
+    "SIGN-UP": "Sign Up",
+    "EXISTING-USERNAME": "This username already exist"
   }
 
 }

@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   returnUrl: string;
+  errorLogin = false;
 
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private authenticationService: AuthentificationService) { }
@@ -30,16 +31,14 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.errorLogin = false;
     if (this.loginForm.invalid) {
       return;
     }
     localStorage.removeItem('token');
     this.authenticationService.login(this.loginForm.value.username, this.loginForm.value.password)
       .pipe(first())
-      .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
-        });
+      .subscribe(() => this.router.navigate([this.returnUrl]), () => this.errorLogin = true);
   }
 
 }

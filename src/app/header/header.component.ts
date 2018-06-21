@@ -21,10 +21,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-  this.authentificationService.loginEvent.subscribe(() => this.connected = true);
+    this.connected = localStorage.getItem('token') !== null;
+    this.authentificationService.loginEvent.subscribe(() => this.connected = true);
   }
 
-  changeLanguage(lang: string){
+  changeLanguage(lang: string) {
     console.log(lang);
     this.translate.use(lang);
   }

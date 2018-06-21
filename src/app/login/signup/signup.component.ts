@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
   errorPassword = false;
-  validUsername = false;
+  validUsername = true;
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private userService: UserService) {
   }
@@ -24,25 +24,34 @@ export class SignupComponent implements OnInit {
 
   createForm() {
     this.signupForm = this.fb.group({
-      username: ['', Validators.required],
+      username: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required, Validators.minLength(7)]),
       confirm_password: new FormControl('', [Validators.required, this.matchOtherValidator('password')])
     });
   }
 
   signUp() {
-    if (this.signupForm.invalid && this.signupForm.value.password !== this.signupForm.value.confirm_password) {
+    if (this.signupForm.invalid) {
       return;
+    } else {
+      this.isExistAndCreate();
     }
-    const user = new User();
-    user.username = this.signupForm.value.username;
-    user.password = this.signupForm.value.password;
-    this.userService.createUser(user).subscribe(() => this.router.navigate(['/login']));
   }
 
-  isExist() {
-    this.userService.isExistUser(this.signupForm.value.username).subscribe(user => this.validUsername = user.username === null);
-  }
+  isExistAndCreate() {
+    if (this.signupForm) {
+       this.userService.isExistUser(this.signupForm.value.username).subscribe(user =>
+         this.validUsername = user.username === null,
+         () => {}, () => {
+         if (this.validUsername) {
+           const new_user = new User();
+           new_user.username = this.signupForm.value.username;
+           new_user.password = this.signupForm.value.password;
+           this.userService.createUser(new_user).subscribe(() => this.router.navigate(['/login']));
+         }
+         });
+      }
+    }
 
   matchOtherValidator(otherControlName: string) {
     let thisControl: FormControl;

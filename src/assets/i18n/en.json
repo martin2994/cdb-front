@@ -7,5 +7,14 @@
   "SEARCH-BAR": {
     "SEARCH": "Search",
     "ADD": "ADD"
+  },
+
+  "SAVE-COMPANY": {
+    "TITLE": "Add a comapny",
+    "TITLE-UPDATE": "Edit Company",
+    "FIELD-NAME": "Name",
+    "NAME-REQUIRED-ERROR": "Name is required",
+    "FIELD-IMAGE-URL": "Image URL",
+    "BUTTON-SAVE": "Save"
   }
 }

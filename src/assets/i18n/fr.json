@@ -17,7 +17,7 @@
   "FIELD-NAME": "Nom",
   "NAME-REQUIRED-ERROR": "Le nom est obligatoire",
   "FIELD-IMAGE-URL": "URL de l'image",
-    "BUTTON-SAVE": "Enregidtrer"
+    "BUTTON-SAVE": "Enregistrer"
   },
 
   "LOGIN": {

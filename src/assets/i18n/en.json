@@ -12,7 +12,7 @@
   },
 
   "SAVE-COMPANY": {
-    "TITLE": "Add a comapny",
+    "TITLE": "Add a company",
     "TITLE-UPDATE": "Edit Company",
     "FIELD-NAME": "Name",
     "NAME-REQUIRED-ERROR": "Name is required",

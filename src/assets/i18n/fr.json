@@ -6,7 +6,9 @@
 
   "SEARCH-BAR": {
     "SEARCH": "Rechercher",
-    "ADD": "AJOUTER"
+    "ADD": "AJOUTER",
+    "RESET-SEARCH": "Reinitialise",
+    "UPDATE-COMPANY": "Modifier Companie"
   },
 
   "SAVE-COMPANY": {
@@ -35,6 +37,14 @@
     "PASSWORD-CONFIRMATION": "Confirmer mot de passe",
     "PASSWORD-CONFIRMATION-ERROR-MESSAGE": "Les 2 mots de passe doivent être pareil",
     "SIGN-UP": "S'enregistrer"
-}
+  },
+
+  "COMPUTER-DETAIL": {
+    "NAME": "Nom",
+    "INTRODUCED": "Lancement",
+    "DISCOUNTED": "Arrêt",
+    "EDIT": "Confirmer",
+    "DELETE": "Supprimer"
+  }
 
 }

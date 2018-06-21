@@ -8,7 +8,7 @@ import {Computer} from './computer.model';
 })
 export class ComputerService {
 
-  private _baseUrl = 'http://localhost:8080/webservice/computer';
+  private _baseUrl = 'http://localhost:8086/webservice/computer';
 
   constructor(private httpClient: HttpClient) { }
 

@@ -6,7 +6,9 @@
 
   "SEARCH-BAR": {
     "SEARCH": "Search",
-    "ADD": "ADD"
+    "ADD": "ADD",
+    "RESET-SEARCH": "Reset",
+    "UPDATE-COMPANY": "Update Company"
   },
 
   "SAVE-COMPANY": {
@@ -35,6 +37,14 @@
     "PASSWORD-CONFIRMATION": "Confirm password",
     "PASSWORD-CONFIRMATION-ERROR-MESSAGE": "The two passwords aren't the same",
     "SIGN-UP": "Sign Up"
+  },
+
+  "COMPUTER-DETAIL": {
+    "NAME": "Name",
+    "INTRODUCED": "Introduced",
+    "DISCOUNTED": "Discounted",
+    "EDIT": "Edit",
+    "DELETE": "Delete"
   }
 
 }

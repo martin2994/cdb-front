@@ -14,10 +14,7 @@ export class CompanyComponent implements OnInit {
   company: Company;
   @Output() deleteEvent: EventEmitter<Company> = new EventEmitter();
 
-<<<<<<< HEAD
 
-  constructor(private companyService: CompanyService) { }
-=======
   constructor(private companyService: CompanyService, private translate: TranslateService) {
     translate.addLangs(['en', 'fr']);
     translate.setDefaultLang('en');
@@ -25,7 +22,6 @@ export class CompanyComponent implements OnInit {
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
   }
->>>>>>> feature
 
   ngOnInit() {
   }

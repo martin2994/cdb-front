@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" [@listAnimation]>
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title class="title"><h1 class="title">{{ 'SAVE-COMPANY.TITLE' | translate }}</h1></mat-card-title>
       <mat-card-subtitle>&nbsp;</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="companyForm" (submit)="onSubmit()">
         <mat-form-field class="full-width">
           <input matInput placeholder="{{ 'SAVE-COMPANY.FIELD-NAME' | translate }}" formControlName="name">
           <mat-error>
@@ -18,6 +18,7 @@
         </mat-form-field>
         <img *ngIf="display" mat-card-image [src]="companyForm.value.logo" (error)="hideLogo()">
         <button type="submit" class="button" mat-raised-button color="primary">{{ 'SAVE-COMPANY.BUTTON-SAVE' | translate }}</button>
+        <button type="button" class="button" (click)="goBack()" mat-raised-button color="accent">{{ 'SAVE-COMPANY.GO-BACK' | translate }}</button>
       </form>
     </mat-card-content>
     <mat-card-actions>

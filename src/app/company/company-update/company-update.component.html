@@ -16,8 +16,11 @@
         <mat-form-field class="full-width">
           <input matInput placeholder="{{ 'SAVE-COMPANY.FIELD-IMAGE-URL' | translate }}" formControlName="logo" (change)="displayLogo()">
         </mat-form-field>
-        <img *ngIf="display" mat-card-image [src]="companyForm.value.logo" (error)="hideLogo()">
+        <div class="image-container" [@listAnimation]>
+          <img *ngIf="display" mat-card-image [src]="companyForm.value.logo" (error)="hideLogo()" >
+        </div>
         <button type="submit" class="button" mat-raised-button color="primary">{{ 'SAVE-COMPANY.BUTTON-SAVE' | translate }}</button>
+        <button type="button" class="button" (click)="goBack()" mat-raised-button color="accent">{{ 'SAVE-COMPANY.GO-BACK' | translate }}</button>
       </form>
     </mat-card-content>
     <mat-card-actions>

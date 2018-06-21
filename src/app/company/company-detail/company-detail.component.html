@@ -39,7 +39,7 @@
 
   <div class="computerList">
     <button mat-raised-button (click)="searchCompany()">+</button>
-    <div  *ngFor="let computer of computers.results" class="custom-computer-display">
+    <div  *ngFor="let computer of computers.results" class="custom-computer-display" [@listAnimation]>
       <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
     </div>
   </div>

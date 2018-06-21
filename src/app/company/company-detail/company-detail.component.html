@@ -37,7 +37,9 @@
     &nbsp;
 
         <span class="toolbar-element">
-    <button mat-raised-button color="accent" *ngIf='search_mod' (click)="reinitializeList()">Réinitialisation</button>
+    <button mat-raised-button color="accent" *ngIf='search_mod' (click)="reinitializeList()">
+      {{ 'SEARCH-BAR.RESET-SEARCH' | translate }}
+      </button>
         </span>
 
     &nbsp;
@@ -59,7 +61,7 @@
     </span>
     <span class="fill-space"></span>
     <span class="toolbar-element">
-  <button mat-raised-button color="accent" [routerLink]="['/company', company.id, 'update']">{{ 'SEARCH-BAR.UPDATE' | translate }}</button>
+  <button mat-raised-button color="accent" [routerLink]="['/company', company.id, 'update']">{{ 'SEARCH-BAR.UPDATE-COMPANY' | translate }}</button>
   </span>
   </mat-toolbar>
 

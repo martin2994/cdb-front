@@ -11,7 +11,7 @@ import {Page} from '../page.model';
 export class CompanyService {
 
 
-  private _baseUrl = 'http://localhost:8086/webservice/company';
+  private _baseUrl = 'http://localhost:8080/webservice/company';
   // private _baseUrl = 'http://10.0.1.75:8086/webservice/company';
 
 

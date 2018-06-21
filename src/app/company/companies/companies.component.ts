@@ -19,6 +19,7 @@ export class CompaniesComponent implements OnInit {
   search: string;
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
+  company: Company;
 
   constructor(private companyService: CompanyService) {
   }
@@ -48,6 +49,14 @@ export class CompaniesComponent implements OnInit {
 
   onDelete(company: Company){
     this.companies.results.splice(this.companies.results.indexOf(company),1);
+  }
+
+  deleteCompany(){
+    this.companyService.deleteCompany(this.company.id).subscribe();
+  }
+
+  errorImage() {
+    this.company.logo = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
   }
 
 }

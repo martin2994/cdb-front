@@ -3,7 +3,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {CommonModule} from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule, MatSnackBarModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatSnackBarModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -24,6 +24,7 @@ import {MatNativeDateModule} from '@angular/material';
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatIconModule,
     NgbModule
   ],
   exports: [
@@ -37,6 +38,7 @@ import {MatNativeDateModule} from '@angular/material';
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatIconModule,
     NgbModule
   ],
   declarations: [

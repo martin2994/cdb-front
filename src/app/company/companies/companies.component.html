@@ -1,27 +1,43 @@
-  <div *ngIf="companies" >
-  <mat-card class="example-container" color="primary" >
+<mat-toolbar class="toolbar">
+  <span class="toolbar-element">
+  <mat-form-field >
+    <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
+  </mat-form-field>
+    </span>
+  <span class="toolbar-element">
+  <button mat-raised-button color="accent" (click)="searchCompany()">Search</button>
+</span>
+  <span class="toolbar-element">
+  <mat-paginator class="mat-paginator"
+                 #paginator
+                 [length]="length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizeOptions"
+                 (page)="changePagination($event)">
+  </mat-paginator>
+    </span>
+  <span class="fill-space"></span>
+  <span class="toolbar-element">
+  <button mat-raised-button color="accent" [routerLink]="['/company/create']">{{ 'SEARCH-BAR.ADD' | translate }}</button>
+  </span>
+</mat-toolbar>
 
-      <mat-form-field >
-        <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
-      </mat-form-field>
-
-      <button mat-raised-button color="accent" (click)="searchCompany()"><i class="material-icons">
-        search
-      </i></button>
-      <mat-paginator
-        #paginator
-        [length]="length"
-        [pageSize]="pageSize"
-        [pageSizeOptions]="pageSizeOptions"
-        (page)="changePagination($event)">
-      </mat-paginator>
-
-      <button mat-raised-button   color="accent" [routerLink]="['/company/create']">{{ 'SEARCH-BAR.ADD' | translate }}</button>
-
-  </mat-card>
-
-  <mat-grid-list cols="2" class="main-contener">
-    <app-company  *ngFor="let company of companies.results" [company]="company" (deleteEvent)="onDelete($event)"></app-company>
+<div *ngIf="companies" class="container">
+  <mat-grid-list cols="4" gutterSize="2%">
+    <mat-grid-tile *ngFor="let company of companies.results">
+      <mat-grid-tile-header class="tile-header"><span class="text-tile-header">{{company.name}}</span></mat-grid-tile-header>
+      <div class="image-container"  [routerLink]="['/company',company.id]">
+        <img [src]="company.logo" onerror="this.src='https://www.freeiconspng.com/uploads/no-image-icon-15.png'" >
+      </div>
+      <mat-grid-tile-footer>
+        <button mat-raised-button color="accent" [routerLink]="['/company',this.company.id]" >
+          <mat-icon>visibility</mat-icon>
+      </button>
+        <span class="fill-space"></span>
+        <button mat-mini-fab color="warn" (click)="deleteCompany()" >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-grid-tile-footer>
+    </mat-grid-tile>
   </mat-grid-list>
-
 </div>

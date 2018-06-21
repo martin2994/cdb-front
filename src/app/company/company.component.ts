@@ -13,8 +13,7 @@ export class CompanyComponent implements OnInit {
   @Input()
   company: Company;
   @Output() deleteEvent: EventEmitter<Company> = new EventEmitter();
-
-
+  
   constructor(private companyService: CompanyService, private translate: TranslateService) {
     translate.addLangs(['en', 'fr']);
     translate.setDefaultLang('en');

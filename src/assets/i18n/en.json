@@ -16,5 +16,25 @@
     "NAME-REQUIRED-ERROR": "Name is required",
     "FIELD-IMAGE-URL": "Image URL",
     "BUTTON-SAVE": "Save"
+  },
+
+  "LOGIN": {
+    "TITLE": "Login",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "LOGIN": "Sign In",
+    "SIGN-UP": "Sign Up"
+  },
+
+  "SIGN-UP": {
+    "TITLE": "Sign Up",
+    "USERNAME": "Username",
+    "USERNAME-ERROR-MESSAGE": "Username is required",
+    "PASSWORD": "Password",
+    "PASSWORD-ERROR-MESSAGE": "Please enter a password with a least 7 characters",
+    "PASSWORD-CONFIRMATION": "Confirm password",
+    "PASSWORD-CONFIRMATION-ERROR-MESSAGE": "The two passwords aren't the same",
+    "SIGN-UP": "Sign Up"
   }
+
 }

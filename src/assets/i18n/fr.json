@@ -8,6 +8,7 @@
     "SEARCH": "Rechercher",
     "ADD": "AJOUTER"
   },
+
   "SAVE-COMPANY": {
   "TITLE": "Ajouter une entreprise",
     "TITLE-UPDATE": "Modifier une entreprise",
@@ -15,6 +16,25 @@
   "NAME-REQUIRED-ERROR": "Le nom est obligatoire",
   "FIELD-IMAGE-URL": "URL de l'image",
     "BUTTON-SAVE": "Enregidtrer"
+  },
+
+  "LOGIN": {
+    "TITLE": "Connexion",
+    "USERNAME": "Nom d'utilsateur",
+    "PASSWORD": "Mot de passe",
+    "LOGIN": "Se connecter",
+    "SIGN-UP": "S'enregistrer"
+  },
+
+  "SIGN-UP": {
+    "TITLE": "Enregistrement",
+    "USERNAME": "Nom d'utilsateur",
+    "USERNAME-ERROR-MESSAGE": "Le nom d'utilisateur est obligatoire",
+    "PASSWORD": "Mot de passe",
+    "PASSWORD-ERROR-MESSAGE": "Le mot de passe doit contenir au moins 7 carractères",
+    "PASSWORD-CONFIRMATION": "Confirmer mot de passe",
+    "PASSWORD-CONFIRMATION-ERROR-MESSAGE": "Les 2 mots de passe doivent être pareil",
+    "SIGN-UP": "S'enregistrer"
 }
 
 }

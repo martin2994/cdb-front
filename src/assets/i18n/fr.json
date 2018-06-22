@@ -56,6 +56,11 @@
     "next_page": "Page suivante",
     "previous_page": "Page précedente",
     "of": "sur"
+  },
+
+  "POPUP":{
+    "ON_DELETE": "Etes-vous sûr de vouloir supprimer "
   }
+
 
 }

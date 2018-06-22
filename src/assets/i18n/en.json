@@ -56,7 +56,10 @@
     "next_page": "Next page",
     "previous_page": "Previous page",
     "of": "of"
+  },
 
+  "POPUP":{
+    "ON_DELETE": "Are you sure to delete "
   }
 
 }

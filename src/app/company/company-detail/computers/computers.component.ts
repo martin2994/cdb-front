@@ -5,6 +5,7 @@ import {ComputerService} from './computer.service';
 import {MAT_DATE_LOCALE} from '@angular/material';
 import {Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-computers',
@@ -19,7 +20,7 @@ export class ComputersComponent implements OnInit {
   @Output() deleteEvent: EventEmitter<Computer> = new EventEmitter();
   editForm: FormGroup;
 
-  constructor(private computerService: ComputerService, private router: Router) { }
+  constructor(private computerService: ComputerService, private router: Router, private  translate: TranslateService) { }
 
   ngOnInit() {
     this.editForm = new FormGroup({
@@ -54,7 +55,7 @@ export class ComputersComponent implements OnInit {
   }
 
   remove() {
-    if(confirm("Etes-vous sûr de vouloir supprimer "+ this.computer.name + " ?")) {
+    if(confirm( this.translate.instant('POPUP.ON_DELETE') + this.computer.name + ' ?')) {
       this.computerService.remove(this.computer).subscribe(() => this.deleteEvent.emit(this.computer));
     }
   }

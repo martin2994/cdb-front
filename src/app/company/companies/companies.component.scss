@@ -1,11 +1,11 @@
 .container {
-  margin-top: 2%;
-  margin-left: 2%;
+  margin: 2%;
 }
 
 .toolbar {
   display: inline-flex;
   height: 10%;
+  margin: 0%;
 }
 
 .containerNavigator {
@@ -22,29 +22,32 @@
 
 }
 
-.fill-space {
-  flex: 1 1 auto;
-}
-
 .toolbar-element {
   padding-right: 1%;
   padding-bottom: 1%;
 }
 
 mat-grid-tile {
-  border-radius: 5%;
+  border-radius: 1%;
   background: white;
+}
+
+.button-visibility {
+  border-radius: 5%;
+}
+
+.fill-space {
+  flex: 1 1 auto;
 }
 
 img {
   height: auto;
   width: 100%;
   display:block;
-
 }
 
 .tile-header {
-  font-family: "DejaVu Sans";
+  font-family: "Helvetica";
   background: black;
 }
 

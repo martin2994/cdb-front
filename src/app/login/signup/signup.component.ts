@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validat
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../user.service';
 import {User} from '../../authenfication/user.model';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
   errorPassword = false;
   validUsername = true;
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private userService: UserService) {
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private userService: UserService, private location: Location) {
   }
 
   ngOnInit() {
@@ -80,5 +81,9 @@ export class SignupComponent implements OnInit {
       }
       return null;
     };
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

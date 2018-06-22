@@ -1,14 +1,8 @@
 <div *ngIf="computers" >
-
   <mat-toolbar class="toolbar">
   <span class="toolbar-element">
 
-    {{ company.name }}
-
-    &nbsp;
-    &nbsp;
-
-        <span class="toolbar-element">
+     <span class="toolbar-element">
     <button mat-raised-button color="accent" *ngIf='search_mod' (click)="reinitializeList()">
       {{ 'SEARCH-BAR.RESET-SEARCH' | translate }}
       </button>
@@ -30,14 +24,22 @@
     </span>
     <span class="fill-space"></span>
     <span class="toolbar-element">
-  <button mat-raised-button color="accent" [routerLink]="['/company', company.id, 'update']">{{ 'SEARCH-BAR.UPDATE-COMPANY' | translate }}</button>
   </span>
   </mat-toolbar>
 
+
+
   <div class="computerList">
-    <button mat-raised-button (click)="searchCompany()">+</button>
-    <div  *ngFor="let computer of computers.results" class="custom-computer-display" [@listAnimation]>
+    <div class="header">
+      <img *ngIf="display" [src]="company.logo" (error)="hideLogo()">
+    </div>
+    <div class="header">
+      <h2 class="company-name">{{company.name}}</h2>
+    </div>
+    <div *ngFor="let computer of computers.results" class="custom-computer-display" [@listAnimation]>
       <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
     </div>
+    <button mat-mini-fab color="accent"><mat-icon>add</mat-icon></button>
   </div>
 </div>
+

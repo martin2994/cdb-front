@@ -32,18 +32,19 @@
     <mat-grid-tile *ngFor="let company of companies.results" @companyAnim>
       <mat-grid-tile-header  class="tile-header">
         <span class="text-tile-header">{{company.name}}</span>
+        <span class="fill-space"></span>
+        <button mat-icon-button color="warn" (click)="deleteCompany(company)" >
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-grid-tile-header>
       <div class="image-container"  [routerLink]="['/company',company.id]">
         <img [src]="company.logo" onerror="this.src='https://www.freeiconspng.com/uploads/no-image-icon-15.png'" >
       </div>
       <mat-grid-tile-footer>
-        <button mat-raised-button color="accent" [routerLink]="['/company',company.id]" >
+        <span class="fill-space"></span>
+        <button class="button-visibility" mat-raised-button color="accent" [routerLink]="['/company',company.id]" >
           <mat-icon>visibility</mat-icon>
       </button>
-        <span class="fill-space"></span>
-        <button mat-mini-fab color="warn" (click)="deleteCompany(company)" >
-          <mat-icon>delete</mat-icon>
-        </button>
       </mat-grid-tile-footer>
     </mat-grid-tile>
   </mat-grid-list>

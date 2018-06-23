@@ -1,0 +1,30 @@
+.example-card {
+  margin: 8px;
+  max-width: 400px;
+
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+  align-items: center;
+}
+
+.container > * {
+  width: 100%;
+}
+
+.company-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.button{
+  width: 100%;
+}

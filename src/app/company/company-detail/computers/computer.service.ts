@@ -12,6 +12,11 @@ export class ComputerService {
 
   constructor(private httpClient: HttpClient) { }
 
+  create(computer: Computer) {
+    console.log(computer);
+    return this.httpClient.post(`${ this._baseUrl }`, computer);
+  }
+
   update(computer: Computer) {
     return this.httpClient.put(`${ this._baseUrl }/${ computer.id }`, computer);
   }

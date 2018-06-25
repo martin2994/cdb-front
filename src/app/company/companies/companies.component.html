@@ -29,7 +29,7 @@
 <div *ngIf="companies" class="container">
   <mat-grid-list cols="4" [gutterSize]=20 *ngIf="!checked">
 
-    <mat-grid-tile *ngFor="let company of companies.results" @companyAnim>
+    <mat-grid-tile *ngFor="let company of companies.results" @companyAnim [routerLink]="['/company',company.id]">
       <mat-grid-tile-header  class="tile-header">
         <span class="text-tile-header">{{company.name}}</span>
         <span class="fill-space"></span>
@@ -37,7 +37,7 @@
           <mat-icon>delete</mat-icon>
         </button>
       </mat-grid-tile-header>
-      <div class="image-container"  [routerLink]="['/company',company.id]">
+      <div class="image-container">
         <img [src]="company.logo" onerror="this.src='https://www.freeiconspng.com/uploads/no-image-icon-15.png'" >
       </div>
       <mat-grid-tile-footer>

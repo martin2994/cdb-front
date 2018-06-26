@@ -45,13 +45,15 @@ export class CompanyCreateComponent implements OnInit {
   }
 
   onSubmit() {
-    this.company.name = this.companyForm.get('name').value;
-    this.company.logo = this.companyForm.get('logo').value;
-    this.companyService.createCompany(this.company).subscribe(() => this.addSucceed(), () => this.addFail());
+    if (this.companyForm.valid) {
+      this.company.name = this.companyForm.get('name').value;
+      this.company.logo = this.companyForm.get('logo').value;
+      this.companyService.createCompany(this.company).subscribe(() => this.addSucceed(), () => this.addFail());
+    }
   }
   createForm() {
     this.companyForm = this.fb.group({
-      name: ['', Validators.required, Validators.maxLength( 30)],
+      name: ['', [Validators.required, Validators.maxLength( 30)]],
       logo: ['']
     });
     this.displayLogo();

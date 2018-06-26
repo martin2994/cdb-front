@@ -1,8 +1,8 @@
 <mat-toolbar class="header-color">
   <span class="fill-space" [routerLink]="['/companies']">Computer-Database</span>
   <div class="flag">
-      <input class="language-item" type="image"  (click)="changeLanguage('fr')" src="http://flags.fmcdn.net/data/flags/w580/fr.png" >
-      <input class="language-item" type="image"  (click)="changeLanguage('en')"  src="http://flags.fmcdn.net/data/flags/w580/gb.png" >
+    <input class="language-item" type="image" (click)="changeLanguage('fr')" src="http://flags.fmcdn.net/data/flags/w580/fr.png" >
+    <input class="language-item" type="image" (click)="changeLanguage('en')" src="http://flags.fmcdn.net/data/flags/w580/gb.png" >
   </div>
   <button class="mat-raised-button mat-warn" flex (click)="logout()" *ngIf="connected">{{ 'LOGIN.LOGOUT' | translate }}</button>
 </mat-toolbar>

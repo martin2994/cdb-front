@@ -14,6 +14,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpLoaderFactory} from '../app.module';
 import {HttpClient} from '@angular/common/http';
 import { ComputerCreateComponent } from './company-detail/computer-create/computer-create.component';
+import { ConfirmDialogComponent } from './companies/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,11 @@ import { ComputerCreateComponent } from './company-detail/computer-create/comput
     CompanyCreateComponent,
     CompanyUpdateComponent,
     ComputersComponent,
-    ComputerCreateComponent
+    ComputerCreateComponent,
+    ConfirmDialogComponent
+  ],
+  entryComponents: [
+    ConfirmDialogComponent
   ]
 })
 export class CompanyModule { }

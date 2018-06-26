@@ -5,6 +5,7 @@ import {DateAdapter} from '@angular/material';
 import {ComputerService} from '../computers/computer.service';
 import {isNullOrUndefined} from 'util';
 import {ActivatedRoute, Router} from '@angular/router';
+import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -23,6 +24,24 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   selector: 'app-computer-create',
   templateUrl: './computer-create.component.html',
   styleUrls: ['./computer-create.component.scss'],
+  animations: [
+
+    trigger('listAnimation', [
+      transition('* => *', [
+
+        query(':enter', style({ opacity: 0, transform: 'translateX(-40px)' })),
+
+        query(':enter', stagger('200ms', [
+          animate('300ms ease-out', style({ opacity: 1, transform: 'translateX(0)' })),
+        ])),
+
+        query(':enter', [
+          animate(1000, style('*'))
+        ])
+      ])
+    ])
+
+  ]
 })
 
 export class ComputerCreateComponent implements OnInit {

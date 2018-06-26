@@ -70,7 +70,10 @@
   },
 
   "POPUP":{
-    "ON_DELETE": "Are you sure to delete "
+    "ON_DELETE": "Are you sure to delete ?",
+    "CONFIRM": "Delete ?",
+    "OK": "OK",
+    "CANCEL": "Cancel"
   }
 
 }

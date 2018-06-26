@@ -2,11 +2,8 @@
   <mat-toolbar class="toolbar">
   <span class="toolbar-element">
      <span class="toolbar-element">
-    <button mat-raised-button color="accent" *ngIf='search_mod' (click)="reinitializeList()">
-      {{ 'SEARCH-BAR.RESET-SEARCH' | translate }}
-      </button>
-        </span>
-
+    <button mat-raised-button color="accent" *ngIf='search_mod' (click)="reinitializeList()">{{ 'SEARCH-BAR.RESET-SEARCH' | translate }}</button>
+     </span>
     <mat-form-field >
       <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
     </mat-form-field>
@@ -23,10 +20,9 @@
     </span>
     <span class="fill-space"></span>
     <span class="toolbar-element">
+  <button mat-raised-button color="accent" [routerLink]="['/company', company.id, 'update']">{{ 'SEARCH-BAR.UPDATE-COMPANY' | translate }}</button>
   </span>
   </mat-toolbar>
-
-
 
   <div class="computerList">
 

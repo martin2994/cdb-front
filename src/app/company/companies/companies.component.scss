@@ -1,9 +1,9 @@
-.container {
+.container-card {
   margin: 2%;
 }
 
 .toolbar {
-  display: inline-flex;
+  //display: inline-flex;
   height: 10%;
   margin: 0%;
   background: #006BA5;
@@ -13,23 +13,45 @@
   display: inline-flex;
 }
 
+.mat-raised-button {
+  margin-left: 2px;
+}
+
 .mat-paginator {
   height: 1%;
   display: inline-flex;
 }
 
 mat-paginator {
+  margin-top: 10px;
   background: #006BA5;
 }
 
 .main-container{
   margin-left: 100px;
-
 }
 
 .toolbar-element {
   padding-right: 1%;
   padding-bottom: 1%;
+  font-size: 14px;
+  line-height: 36px;
+}
+
+
+.toolbar-search-margin {
+  margin-top: 2%;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.toolbar-toogle-margin {
+  margin-top: 30px;
+ }
+
+.toolbar-button-margin{
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
 mat-grid-tile {
@@ -62,7 +84,7 @@ img {
 
 
 .mat-grid-tile .mat-grid-tile-footer>*, .mat-grid-tile .mat-grid-tile-header>* {
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .image-container {

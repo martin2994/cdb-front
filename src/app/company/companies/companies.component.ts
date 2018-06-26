@@ -41,8 +41,8 @@ export class CompaniesComponent implements OnInit {
 
   companies: Page<Company>;
   length;
-  pageSize = 10;
-  pageSizeOptions = [4, 10, 20, 100];
+  pageSize = 12;
+  pageSizeOptions = [4, 12, 32, 128];
   pageEvent: PageEvent;
   search: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -53,6 +53,7 @@ export class CompaniesComponent implements OnInit {
 
   ngOnInit() {
     this.search = '';
+    this.pageSize = 12;
     this.getCompanies(0, this.pageSize, this.search);
   }
 
@@ -76,12 +77,6 @@ export class CompaniesComponent implements OnInit {
 
   deleteCompany(company: Company) {
     console.log(company);
-    /*
-    if (confirm( this.translate.instant('POPUP.ON_DELETE') + company.name + '?')) {
-      this.companyService.deleteCompany(company.id).subscribe();
-      this.companies.results.splice(this.companies.results.indexOf(company), 1 );
-    }*/
-
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       disableClose: false
     });

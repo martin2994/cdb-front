@@ -15,7 +15,7 @@
     "TITLE": "Add a company",
     "TITLE-UPDATE": "Edit Company",
     "FIELD-NAME": "Name",
-    "NAME-REQUIRED-ERROR": "Name is required",
+    "NAME-REQUIRED-ERROR": "Name is required (max 30 chars.)",
     "FIELD-IMAGE-URL": "Image URL",
     "BUTTON-SAVE": "Save",
     "GO-BACK": "Cancel"
@@ -24,14 +24,16 @@
   "SAVE-COMPUTER": {
     "TITLE": "Add a computer",
     "NAME": "Name",
-    "NAME-REQUIRED-ERROR": "Name is required",
+    "NAME-REQUIRED-ERROR": "Name is required (max 30 chars.)",
     "INTRODUCED": "Introduced date",
     "DISCONTINUED": "Discontinued date",
+    "DISCONTINUED-ERROR": "Discontinued date cannot be earlier than introduced date",
     "BUTTON-SAVE": "Save"
   },
 
   "LOGIN": {
     "TITLE": "Login",
+    "LOGOUT": "Logout",
     "USERNAME": "Username",
     "PASSWORD": "Password",
     "LOGIN": "Sign In",
@@ -55,7 +57,7 @@
   "COMPUTER-DETAIL": {
     "NAME": "Name",
     "INTRODUCED": "Introduced",
-    "DISCOUNTED": "Discounted",
+    "DISCOUNTED": "Discontinued",
     "EDIT": "Edit",
     "DELETE": "Delete"
   },

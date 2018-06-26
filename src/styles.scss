@@ -21,7 +21,9 @@ body { margin: 0; }
   color: azure;
 }
 
-
+.mat-select-panel .mat-optgroup-label, .mat-select-panel .mat-option {
+  color: white;
+}
 // Define the theme.
 $candy-app-primary: mat-palette($mat-blue);
 //$candy-app-accent:  mat-palette($mat-blue-grey, A200, A100, A400);

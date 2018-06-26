@@ -13,12 +13,15 @@
 
     <mat-form-field class="example-full-width">
       <input matInput placeholder="{{ 'COMPUTER-DETAIL.NAME' | translate }}" name="name" formControlName="name" value="{{ computer.name }}">
+      <mat-error>
+        {{ 'SAVE-COMPUTER.NAME-REQUIRED-ERROR' | translate }}
+      </mat-error>
     </mat-form-field>
 
     &nbsp;
 
     <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="{{ 'COMPUTER-DETAIL.INTRODUCED' | translate }}" name="introduced" formControlName="introduced" value="{{ computer.introduced | date:'yyyy-MM-dd' }}">
+      <input matInput [matDatepicker]="picker" placeholder="{{ 'COMPUTER-DETAIL.INTRODUCED' | translate }}" name="introduced" formControlName="introduced" [errorStateMatcher]="matcher" [min]="minDate" value="{{ computer.introduced | date:'yyyy-MM-dd' }}">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker startView="year"></mat-datepicker>
     </mat-form-field>
@@ -26,9 +29,10 @@
     &nbsp;
 
     <mat-form-field>
-      <input matInput [matDatepicker]="picker2" placeholder="{{ 'COMPUTER-DETAIL.DISCOUNTED' | translate }}" name="discontinued" formControlName="discontinued" [min]="computer.introduced | date:'yyyy-MM-dd'"  value="{{ computer.discontinued | date:'yyyy-MM-dd' }}">
+      <input matInput [matDatepicker]="picker2" placeholder="{{ 'COMPUTER-DETAIL.DISCOUNTED' | translate }}" name="discontinued" formControlName="discontinued" [errorStateMatcher]="matcher"  [min]="minDate" value="{{ computer.discontinued | date:'yyyy-MM-dd' }}">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2 startView="year"></mat-datepicker>
+      <mat-error *ngIf="editForm.hasError('endDateLessThanStartDate')">{{ 'SAVE-COMPUTER.DISCONTINUED-ERROR' | translate }}</mat-error>
     </mat-form-field>
 
     &nbsp;

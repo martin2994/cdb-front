@@ -11,11 +11,11 @@
   <mat-paginator class="mat-paginator"
                  #paginator
                  [length]="length"
-                 [pageSize]="pageSize"
+                 pageSize="12"
                  [pageSizeOptions]="pageSizeOptions"
                  (page)="changePagination($event)">
   </mat-paginator>
-    </span>
+  </span>
   <mat-icon>view_module</mat-icon>
   <mat-slide-toggle [(ngModel)]="checked">
   </mat-slide-toggle>

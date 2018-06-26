@@ -15,24 +15,20 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="{{ 'SAVE-COMPUTER.INTRODUCED' | translate }}" name="introduced" formControlName="introduced" (dateInput)="compareDates()">
+          <input matInput [matDatepicker]="picker" placeholder="{{ 'SAVE-COMPUTER.INTRODUCED' | translate }}" name="introduced" [errorStateMatcher]="matcher" [min]="minDate" formControlName="introduced">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker startView="year"></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput [matDatepicker]="picker2" placeholder="{{ 'SAVE-COMPUTER.DISCONTINUED' | translate }}" name="discontinued" formControlName="discontinued" (dateInput)="compareDates()">
+          <input matInput [matDatepicker]="picker2" placeholder="{{ 'SAVE-COMPUTER.DISCONTINUED' | translate }}" name="discontinued" [errorStateMatcher]="matcher" [min]="minDate" formControlName="discontinued">
           <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
           <mat-datepicker #picker2 startView="year"></mat-datepicker>
+          <mat-error *ngIf="computerForm.hasError('endDateLessThanStartDate')">{{ 'SAVE-COMPUTER.DISCONTINUED-ERROR' | translate }}</mat-error>
         </mat-form-field>
-
-        <mat-error *ngIf="error.isError">
-          {{ error.errorMessage }}
-        </mat-error>
 
         <button type="submit" class="button" mat-raised-button color="primary">{{ 'SAVE-COMPUTER.BUTTON-SAVE' | translate }}</button>
         <button type="button" class="button" (click)="goBack()" mat-raised-button color="accent">{{ 'SAVE-COMPANY.GO-BACK' | translate }}</button>
-
 
       </form>
     </mat-card-content>

@@ -15,7 +15,7 @@
   "TITLE": "Ajouter une entreprise",
     "TITLE-UPDATE": "Modifier une entreprise",
   "FIELD-NAME": "Nom",
-  "NAME-REQUIRED-ERROR": "Le nom est obligatoire",
+  "NAME-REQUIRED-ERROR": "Le nom est obligatoire (max 30 chars.)",
   "FIELD-IMAGE-URL": "URL de l'image",
     "BUTTON-SAVE": "Enregistrer",
     "GO-BACK": "Annuler"
@@ -24,14 +24,16 @@
   "SAVE-COMPUTER": {
     "TITLE": "Ajouter un ordinateur",
     "NAME": "Nom",
-    "NAME-REQUIRED-ERROR": "Le nom est obligatoire",
+    "NAME-REQUIRED-ERROR": "Le nom est obligatoire (max 30 chars.)",
     "INTRODUCED": "Date de lancement",
     "DISCONTINUED": "Date d'arret",
+    "DISCONTINUED-ERROR": "Le date d'arret doit etre après la date de lancement",
     "BUTTON-SAVE": "Enregistrer"
   },
 
   "LOGIN": {
     "TITLE": "Connexion",
+    "LOGOUT": "Se Déconnecter",
     "USERNAME": "Nom d'utilsateur",
     "PASSWORD": "Mot de passe",
     "LOGIN": "Se connecter",

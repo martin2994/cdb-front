@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {
-  MatButtonModule, MatDialogModule, MatDividerModule,
+  MatButtonModule, MatDialogModule, MatDividerModule, MatGridListModule,
   MatIconModule,
   MatListModule, MatSlideToggleModule,
   MatSnackBarModule
@@ -16,6 +16,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatGridListModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -36,7 +37,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatDividerModule,
     MatSlideToggleModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatGridListModule
   ],
   exports: [
     MatToolbarModule,
@@ -55,7 +57,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatDividerModule,
     MatSlideToggleModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatGridListModule
   ],
   declarations: [
   ]

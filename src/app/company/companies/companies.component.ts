@@ -78,7 +78,6 @@ export class CompaniesComponent implements OnInit {
   }
 
   deleteCompany(company: Company) {
-    console.log(company);
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       disableClose: false
     });
@@ -88,6 +87,11 @@ export class CompaniesComponent implements OnInit {
         this.companies.results.splice(this.companies.results.indexOf(company), 1 );
       }
     });
+  }
+
+  clearSearch() {
+    this.search = '';
+    this.getCompanies(0, this.pageSize, this.search);
   }
 
   onResize(event) {

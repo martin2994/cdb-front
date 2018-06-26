@@ -143,5 +143,4 @@ export class CompanyDetailComponent implements OnInit {
   hideLogo() {
     this.display = false;
   }
-
 }

@@ -2,11 +2,12 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Computer } from './computer.model';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ComputerService} from './computer.service';
-import {DateAdapter, MAT_DATE_LOCALE} from '@angular/material';
+import {DateAdapter, MAT_DATE_LOCALE, MatDialog} from '@angular/material';
 import {Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
 import {TranslateService} from '@ngx-translate/core';
 import {ErrorStateMatcher} from '@angular/material/core';
+import {ConfirmDialogComponent} from '../../companies/confirm-dialog/confirm-dialog.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
 
@@ -38,7 +39,7 @@ export class ComputersComponent implements OnInit {
   minDate = new Date(1970, 1, 1);
 
   constructor(private computerService: ComputerService, private dateAdapter: DateAdapter<Date>,
-              private fb: FormBuilder, private router: Router, private  translate: TranslateService) { }
+              private fb: FormBuilder, private router: Router, private  translate: TranslateService,  public dialog: MatDialog) {}
 
   ngOnInit() {
     this.editForm = this.fb.group({
@@ -84,9 +85,17 @@ export class ComputersComponent implements OnInit {
   }
 
   remove() {
-    if(confirm( this.translate.instant('POPUP.ON_DELETE') + this.computer.name + ' ?')) {
-      this.computerService.remove(this.computer).subscribe(() => this.deleteEvent.emit(this.computer));
-    }
+   // if (confirm( this.translate.instant('POPUP.ON_DELETE') + this.computer.name + ' ?')) {
+    //  this.computerService.remove(this.computer).subscribe(() => this.deleteEvent.emit(this.computer));
+    // }
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      disableClose: false
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.computerService.remove(this.computer).subscribe(() => this.deleteEvent.emit(this.computer));
+      }
+    });
   }
 
 }

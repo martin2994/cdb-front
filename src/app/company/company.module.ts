@@ -9,7 +9,6 @@ import {CustomMaterialModule} from '../custom-material/custom-material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import { ComputersComponent } from './company-detail/computers/computers.component';
-import {MatGridListModule, MatPaginatorModule} from '@angular/material';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpLoaderFactory} from '../app.module';
 import {HttpClient} from '@angular/common/http';
@@ -23,8 +22,6 @@ import { ConfirmDialogComponent } from './companies/confirm-dialog/confirm-dialo
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    MatPaginatorModule,
-    MatGridListModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

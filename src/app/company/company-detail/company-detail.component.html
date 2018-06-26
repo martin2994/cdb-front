@@ -1,27 +1,22 @@
-<div *ngIf="computers" >
+<div *ngIf="computers">
   <mat-toolbar class="toolbar">
-  <span class="toolbar-element">
-     <span class="toolbar-element">
-    <button mat-raised-button color="accent" *ngIf='search_mod' (click)="reinitializeList()">{{ 'SEARCH-BAR.RESET-SEARCH' | translate }}</button>
-     </span>
-    <mat-form-field >
-      <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
-    </mat-form-field>
-    </span>
-    <span class="toolbar-element">
-  <button mat-raised-button color="accent" (click)="searchComputers()">{{ 'SEARCH-BAR.SEARCH' | translate }}</button>
-</span>
-    <span class="toolbar-element">
-  <mat-paginator style="float: right;" [length]="length"
-                 [pageSize]="pageSize"
-                 [pageSizeOptions]="pageSizeOptions"
-                 (page)="pageUpdate($event)">
-  </mat-paginator>
-    </span>
-    <span class="fill-space"></span>
-    <span class="toolbar-element">
-  <button mat-raised-button color="accent" [routerLink]="['/company', company.id, 'update']">{{ 'SEARCH-BAR.UPDATE-COMPANY' | translate }}</button>
-  </span>
+    <div class="container-fluid row">
+      <div>
+        <button mat-raised-button color="accent" *ngIf='search_mod' (click)="reinitializeList()">{{ 'SEARCH-BAR.RESET-SEARCH' | translate }}</button>
+        <mat-form-field >
+          <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
+        </mat-form-field>
+        <button mat-raised-button color="accent" (click)="searchComputers()">{{ 'SEARCH-BAR.SEARCH' | translate }}</button>
+      </div>
+      <mat-paginator class="mat-paginator" style="float: right;" [length]="length"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="pageUpdate($event)">
+      </mat-paginator>
+      <div class="toolbar-button-margin">
+        <button mat-raised-button color="accent" [routerLink]="['/company', company.id, 'update']">{{ 'SEARCH-BAR.UPDATE-COMPANY' | translate }}</button>
+      </div>
+    </div>
   </mat-toolbar>
 
   <div class="computerList">

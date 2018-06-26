@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {
-  MatButtonModule, MatDividerModule,
+  MatButtonModule, MatDialogModule, MatDividerModule,
   MatIconModule,
   MatListModule, MatSlideToggleModule,
   MatSnackBarModule
@@ -33,7 +33,8 @@ import {MatNativeDateModule} from '@angular/material';
     NgbModule,
     MatListModule,
     MatDividerModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule
   ],
   exports: [
     MatToolbarModule,
@@ -50,7 +51,8 @@ import {MatNativeDateModule} from '@angular/material';
     NgbModule,
     MatListModule,
     MatDividerModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule
   ],
   declarations: [
   ]

@@ -8,6 +8,7 @@ import {ComputerService} from '../computers/computer.service';
 import {isNullOrUndefined} from 'util';
 import {ActivatedRoute, Router} from '@angular/router';
 import {isEmpty} from 'rxjs/operators';
+import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
@@ -15,7 +16,25 @@ import {isEmpty} from 'rxjs/operators';
   templateUrl: './computer-create.component.html',
   styleUrls: ['./computer-create.component.scss'],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}]
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}],
+  animations: [
+
+    trigger('listAnimation', [
+      transition('* => *', [
+
+        query(':enter', style({ opacity: 0, transform: 'translateX(-40px)' })),
+
+        query(':enter', stagger('200ms', [
+          animate('300ms ease-out', style({ opacity: 1, transform: 'translateX(0)' })),
+        ])),
+
+        query(':enter', [
+          animate(1000, style('*'))
+        ])
+      ])
+    ])
+
+  ]
 })
 export class ComputerCreateComponent implements OnInit {
 

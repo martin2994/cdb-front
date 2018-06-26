@@ -43,16 +43,18 @@ export class CompanyUpdateComponent implements OnInit {
   }
 
   update() {
-    this.company.name = this.companyForm.get('name').value;
-    this.company.logo = this.companyForm.get('logo').value;
-    this.companyService.updateCompany(this.company).subscribe(
-      () => this.router.navigate(['company/' + this.company.id]),
-      () => this.addFail());
+    if(this.companyForm.valid) {
+      this.company.name = this.companyForm.get('name').value;
+      this.company.logo = this.companyForm.get('logo').value;
+      this.companyService.updateCompany(this.company).subscribe(
+        () => this.router.navigate(['company/' + this.company.id]),
+        () => this.addFail());
+    }
   }
 
   createForm() {
     this.companyForm = this.fb.group({
-      name: [this.company.name || '', Validators.required, Validators.maxLength( 30)],
+      name: [this.company.name || '', [Validators.required, Validators.maxLength( 30)]],
       logo: [this.company.logo || '']
     });
     this.displayLogo();

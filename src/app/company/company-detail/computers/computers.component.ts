@@ -31,6 +31,7 @@ export class ComputersComponent implements OnInit {
 
   @Input() computer: Computer;
   @Output() deleteEvent: EventEmitter<Computer> = new EventEmitter();
+
   editForm: FormGroup;
 
   matcher = new MyErrorStateMatcher();
@@ -48,9 +49,11 @@ export class ComputersComponent implements OnInit {
   }
 
   checkDates(group: FormGroup) {
-    if (group.get('discontinued').value !== '' || group.get('introduced').value !== '') {
+    if (!isNullOrUndefined(group.get('discontinued').value) && group.get('discontinued').value !== '') {
       if (new Date(group.controls.discontinued.value) < new Date(group.controls.introduced.value)) {
-        return {endDateLessThanStartDate: true};
+        return {
+          endDateLessThanStartDate: true
+        };
       }
     }
     return null;

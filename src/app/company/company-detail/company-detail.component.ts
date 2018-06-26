@@ -112,7 +112,7 @@ export class CompanyDetailComponent implements OnInit {
 
   reinitializeList() {
     this.search_mod = false;
-    this.search = "";
+    this.search = '';
     this.companyService.getComputerByCompanyId(this.route.snapshot.paramMap.get('id'),
        0, this.pageSize).subscribe(computers => {
       this.computers = computers;
@@ -122,6 +122,16 @@ export class CompanyDetailComponent implements OnInit {
   }
 
   delete(computer) {
+    this.companyService.getComputerByCompanyId(this.route.snapshot.paramMap.get('id'),
+      0, this.pageSize).subscribe(computers => {
+      this.computers = computers;
+      this.pageSize = computers.resultPerPage;
+      this.length = computers.numberOfElements;
+    });
+  }
+
+  add(computer) {
+    console.log(computer);
     this.companyService.getComputerByCompanyId(this.route.snapshot.paramMap.get('id'),
       0, this.pageSize).subscribe(computers => {
       this.computers = computers;

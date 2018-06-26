@@ -20,6 +20,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatPaginatorIntl} from '@angular/material';
 import {PaginatorIntlService} from './MatPaginatorIntl';
+import 'hammerjs';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);

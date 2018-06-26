@@ -1,11 +1,24 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Computer } from './computer.model';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ComputerService} from './computer.service';
 import {DateAdapter, MAT_DATE_LOCALE} from '@angular/material';
 import {Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
 import {TranslateService} from '@ngx-translate/core';
+import {ErrorStateMatcher} from '@angular/material/core';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = !!(form && form.submitted);
+    const controlTouched = !!(control && (control.dirty || control.touched));
+    const controlInvalid = !!(control && control.invalid);
+    const parentInvalid = !!(control && control.parent && control.parent.invalid && (control.parent.dirty || control.parent.touched));
+
+    return ((control.value !== '') && isSubmitted) || ((control.value !== '') && (controlTouched && (controlInvalid || parentInvalid)));
+  }
+}
 
 @Component({
   selector: 'app-computers',
@@ -20,14 +33,27 @@ export class ComputersComponent implements OnInit {
   @Output() deleteEvent: EventEmitter<Computer> = new EventEmitter();
   editForm: FormGroup;
 
-  constructor(private computerService: ComputerService, private dateAdapter: DateAdapter<Date>, private router: Router, private  translate: TranslateService) { }
+  matcher = new MyErrorStateMatcher();
+  minDate = new Date(1970, 1, 1);
+
+  constructor(private computerService: ComputerService, private dateAdapter: DateAdapter<Date>,
+              private fb: FormBuilder, private router: Router, private  translate: TranslateService) { }
 
   ngOnInit() {
-    this.editForm = new FormGroup({
-      name: new FormControl(this.computer.name),
+    this.editForm = this.fb.group({
+      name: new FormControl(this.computer.name, Validators.required),
       introduced: new FormControl(this.computer.introduced),
       discontinued: new FormControl(this.computer.discontinued)
-    });
+    }, { validator: this.checkDates });
+  }
+
+  checkDates(group: FormGroup) {
+    if (group.get('discontinued').value !== '' || group.get('introduced').value !== '') {
+      if (new Date(group.controls.discontinued.value) < new Date(group.controls.introduced.value)) {
+        return {endDateLessThanStartDate: true};
+      }
+    }
+    return null;
   }
 
   submit() {

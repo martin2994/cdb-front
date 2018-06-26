@@ -27,6 +27,7 @@
     "NAME-REQUIRED-ERROR": "Name is required",
     "INTRODUCED": "Introduced date",
     "DISCONTINUED": "Discontinued date",
+    "DISCONTINUED-ERROR": "Discontinued date cannot be earlier than introduced date",
     "BUTTON-SAVE": "Save"
   },
 

@@ -27,6 +27,7 @@
     "NAME-REQUIRED-ERROR": "Le nom est obligatoire",
     "INTRODUCED": "Date de lancement",
     "DISCONTINUED": "Date d'arret",
+    "DISCONTINUED-ERROR": "Le date d'arret doit etre après la date de lancement",
     "BUTTON-SAVE": "Enregistrer"
   },
 

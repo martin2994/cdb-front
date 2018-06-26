@@ -33,6 +33,7 @@
 
   "LOGIN": {
     "TITLE": "Connexion",
+    "LOGOUT": "Se Déconnecter",
     "USERNAME": "Nom d'utilsateur",
     "PASSWORD": "Mot de passe",
     "LOGIN": "Se connecter",

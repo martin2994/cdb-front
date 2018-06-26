@@ -33,6 +33,7 @@
 
   "LOGIN": {
     "TITLE": "Login",
+    "LOGOUT": "Logout",
     "USERNAME": "Username",
     "PASSWORD": "Password",
     "LOGIN": "Sign In",
@@ -56,7 +57,7 @@
   "COMPUTER-DETAIL": {
     "NAME": "Name",
     "INTRODUCED": "Introduced",
-    "DISCOUNTED": "Discounted",
+    "DISCOUNTED": "Discontinued",
     "EDIT": "Edit",
     "DELETE": "Delete"
   },

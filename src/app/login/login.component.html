@@ -4,14 +4,24 @@
       <mat-card-title>{{ 'LOGIN.TITLE' | translate }}</mat-card-title>
     </mat-card-header>
     <form [formGroup]="loginForm" (submit)="login()">
+      <mat-error *ngIf="errorLogin">
+        {{ 'LOGIN.ERROR-LOGIN' | translate }}
+      </mat-error>
       <mat-form-field class="example-full-width">
         <input matInput placeholder="{{ 'LOGIN.USERNAME' | translate }}" formControlName="username" >
+        <mat-error>
+          {{ 'LOGIN.REQUIRED' | translate }}
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <input matInput placeholder="{{ 'LOGIN.PASSWORD' | translate }}" type="password" formControlName="password" >
+        <mat-error>
+          {{ 'LOGIN.REQUIRED' | translate }}
+        </mat-error>
       </mat-form-field>
       <mat-card-actions>
+        <span class="fill-space"></span>
         <button type="submit" mat-raised-button color="primary">{{ 'LOGIN.LOGIN' | translate }}</button>
         <button type="button" mat-raised-button color="accent" [routerLink]="['/signup']">{{ 'LOGIN.SIGN-UP' | translate }}</button>
       </mat-card-actions>

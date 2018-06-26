@@ -2,24 +2,18 @@
   <mat-toolbar class="toolbar">
   <span class="toolbar-element">
 
-    {{ company.name }}
-
-    &nbsp;
-    &nbsp;
-
-        <span class="toolbar-element">
-    <button mat-raised-button color="accent" *ngIf='search_mod' (click)="reinitializeList()">Réinitialisation</button>
+     <span class="toolbar-element">
+    <button mat-raised-button color="accent" *ngIf='search_mod' (click)="reinitializeList()">
+      {{ 'SEARCH-BAR.RESET-SEARCH' | translate }}
+      </button>
         </span>
-
-    &nbsp;
-    &nbsp;
 
     <mat-form-field >
       <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
     </mat-form-field>
     </span>
     <span class="toolbar-element">
-  <button mat-raised-button color="accent" (click)="searchComputers()">Search</button>
+  <button mat-raised-button color="accent" (click)="searchComputers()">{{ 'SEARCH-BAR.SEARCH' | translate }}</button>
 </span>
     <span class="toolbar-element">
   <mat-paginator style="float: right;" [length]="length"
@@ -30,14 +24,22 @@
     </span>
     <span class="fill-space"></span>
     <span class="toolbar-element">
-  <button mat-raised-button color="accent" [routerLink]="['/company', company.id, 'update']">{{ 'SEARCH-BAR.UPDATE' | translate }}</button>
   </span>
   </mat-toolbar>
 
+
+
   <div class="computerList">
-    <button mat-raised-button color="accent" [routerLink]="['/company', company.id, 'create']">+</button>
-    <div  *ngFor="let computer of computers.results" class="custom-computer-display">
+    <div class="header">
+      <img *ngIf="display" [src]="company.logo" (error)="hideLogo()">
+    </div>
+    <div class="header">
+      <h2 class="company-name">{{company.name}}</h2>
+    </div>
+    <div *ngFor="let computer of computers.results" class="custom-computer-display" [@listAnimation]>
       <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
     </div>
+    <button mat-mini-fab color="accent" [routerLink]="['/company', company.id, 'create']"><mat-icon>add</mat-icon></button>
   </div>
 </div>
+

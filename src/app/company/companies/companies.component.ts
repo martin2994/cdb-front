@@ -3,25 +3,52 @@ import {Company} from '../company.model';
 import {CompanyService} from '../company.service';
 import {MatPaginator, PageEvent} from '@angular/material';
 import {Page} from '../../page.model';
+import {animate, keyframes, style, transition, trigger} from '@angular/animations';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-companies',
   templateUrl: './companies.component.html',
-  styleUrls: ['./companies.component.scss']
+  styleUrls: ['./companies.component.scss'],
+  animations: [
+    trigger('companyAnim', [
+      transition(':enter', [
+        style({
+          opacity: '0',
+          height: '0'
+        }),
+        animate('.5s ease-out', style({
+          opacity: '1',
+          height: '*'
+        })),
+      ]),
+      transition(':leave', [
+        style({
+          height: '*',
+          opacity: '1'
+        }),
+        animate('.5s ease-out', style({
+          height: '0',
+          opacity: '0'
+        }))
+      ])
+    ])
+  ]
 })
 export class CompaniesComponent implements OnInit {
 
+
   companies: Page<Company>;
+  //translate: TranslateService;
   length;
   pageSize = 10;
   pageSizeOptions = [4, 10, 20, 100];
   pageEvent: PageEvent;
   search: string;
-  @ViewChild(MatPaginator)
-  paginator: MatPaginator;
-  company: Company;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  checked = false;
 
-  constructor(private companyService: CompanyService) {
+  constructor(private companyService: CompanyService, private  translate: TranslateService) {
   }
 
   ngOnInit() {
@@ -42,21 +69,16 @@ export class CompaniesComponent implements OnInit {
     this.getCompanies(this.pageEvent.pageIndex, this.pageEvent.pageSize, this.search);
   }
 
-  searchCompany(){
+  searchCompany() {
     this.paginator._pageIndex = 0;
     this.getCompanies( 0, this.pageSize, this.search);
   }
 
-  onDelete(company: Company){
-    this.companies.results.splice(this.companies.results.indexOf(company),1);
+  deleteCompany(company: Company) {
+    console.log(company);
+    if(confirm( this.translate.instant('POPUP.ON_DELETE') + company.name + '?')) {
+      this.companyService.deleteCompany(company.id).subscribe();
+      this.companies.results.splice(this.companies.results.indexOf(company), 1 );
+    }
   }
-
-  deleteCompany(){
-    this.companyService.deleteCompany(this.company.id).subscribe();
-  }
-
-  errorImage() {
-    this.company.logo = 'https://www.freeiconspng.com/uploads/no-image-icon-15.png';
-  }
-
 }

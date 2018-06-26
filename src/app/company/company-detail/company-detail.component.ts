@@ -7,12 +7,26 @@ import {DateAdapter, PageEvent} from '@angular/material';
 import {ComputerService} from './computers/computer.service';
 import {isNullOrUndefined} from 'util';
 import {Page} from '../../page.model';
+import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
+
 
 @Component({
   selector: 'app-company-detail',
   templateUrl: './company-detail.component.html',
   styleUrls: ['./company-detail.component.scss',
     "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css",
+  ],
+  animations: [
+    trigger('listAnimation', [
+      transition('* => *', [ // each time the binding value changes
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(100, [
+            animate('1s', style({ opacity: 1 }))
+          ])
+        ], { optional: true })
+      ])
+    ])
   ]
 })
 export class CompanyDetailComponent implements OnInit {
@@ -29,8 +43,12 @@ export class CompanyDetailComponent implements OnInit {
   pageSize = 10;
   pageSizeOptions = [5, 10];
   pageSizeChanged = false;
+  display = true;
 
-  constructor(private companyService: CompanyService, private computerService: ComputerService, private route: ActivatedRoute, private adapter: DateAdapter<any>) {
+  constructor(private companyService: CompanyService,
+              private computerService: ComputerService,
+              private route: ActivatedRoute,
+              private adapter: DateAdapter<any>) {
     this.adapter.setLocale('fr');
   }
 
@@ -110,6 +128,10 @@ export class CompanyDetailComponent implements OnInit {
       this.pageSize = computers.resultPerPage;
       this.length = computers.numberOfElements;
     });
+  }
+
+  hideLogo() {
+    this.display = false;
   }
 
 }

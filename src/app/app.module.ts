@@ -15,9 +15,11 @@ import {AuthentificationService} from './authentification.service';
 import {AuthGuard} from './auth.guard';
 import {JwtInterceptor} from './authenfication/jwt.interceptors';
 import { SignupComponent } from './login/signup/signup.component';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateModule, TranslateLoader, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatPaginatorIntl} from '@angular/material';
+import {PaginatorIntlService} from './MatPaginatorIntl';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -56,9 +58,20 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
+    },
+
+    {
+      provide: MatPaginatorIntl,
+      useFactory: (translate) => {
+        const service = new PaginatorIntlService();
+        service.injectTranslateService(translate);
+        return service;
+      },
+      deps: [TranslateService]
     }
   ],
   bootstrap: [AppComponent]
+
 })
 export class AppModule {
 }

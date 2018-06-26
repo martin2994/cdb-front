@@ -4,11 +4,25 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {CompanyService} from '../company.service';
 import {Company} from '../company.model';
 import {ActivatedRoute, Router} from '@angular/router';
+import { Location } from '@angular/common';
+import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-company-update',
   templateUrl: './company-update.component.html',
-  styleUrls: ['./company-update.component.scss']
+  styleUrls: ['./company-update.component.scss'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* => *', [ // each time the binding value changes
+        query(':enter', [
+          style({ opacity: 0 }),
+          stagger(100, [
+            animate('1s', style({ opacity: 1 }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ]
 })
 export class CompanyUpdateComponent implements OnInit {
 
@@ -20,7 +34,8 @@ export class CompanyUpdateComponent implements OnInit {
               private fb: FormBuilder,
               public snackBar: MatSnackBar,
               private route: ActivatedRoute,
-              private router: Router) {}
+              private router: Router,
+              private location: Location) {}
 
   ngOnInit() {
     this.companyService.getCompany(this.route.snapshot.paramMap.get('id'))
@@ -42,6 +57,7 @@ export class CompanyUpdateComponent implements OnInit {
     });
     this.displayLogo();
   }
+
   addFail() {
     const config = new MatSnackBarConfig();
     config.verticalPosition = 'bottom';
@@ -59,5 +75,9 @@ export class CompanyUpdateComponent implements OnInit {
   }
   hideLogo() {
     this.display = false;
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

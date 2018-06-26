@@ -6,7 +6,9 @@
 
   "SEARCH-BAR": {
     "SEARCH": "Rechercher",
-    "ADD": "AJOUTER"
+    "ADD": "AJOUTER",
+    "RESET-SEARCH": "Reinitialise",
+    "UPDATE-COMPANY": "Modifier Companie"
   },
 
   "SAVE-COMPANY": {
@@ -15,7 +17,8 @@
   "FIELD-NAME": "Nom",
   "NAME-REQUIRED-ERROR": "Le nom est obligatoire",
   "FIELD-IMAGE-URL": "URL de l'image",
-    "BUTTON-SAVE": "Enregidtrer"
+    "BUTTON-SAVE": "Enregistrer",
+    "GO-BACK": "Annuler"
   },
 
   "LOGIN": {
@@ -23,7 +26,9 @@
     "USERNAME": "Nom d'utilsateur",
     "PASSWORD": "Mot de passe",
     "LOGIN": "Se connecter",
-    "SIGN-UP": "S'enregistrer"
+    "SIGN-UP": "S'enregistrer",
+    "ERROR-LOGIN": "Mauvais nom d'utilisateur et/ou mot de passe",
+    "REQUIRED": "Champ obligatoire"
   },
 
   "SIGN-UP": {
@@ -34,7 +39,28 @@
     "PASSWORD-ERROR-MESSAGE": "Le mot de passe doit contenir au moins 7 carractères",
     "PASSWORD-CONFIRMATION": "Confirmer mot de passe",
     "PASSWORD-CONFIRMATION-ERROR-MESSAGE": "Les 2 mots de passe doivent être pareil",
-    "SIGN-UP": "S'enregistrer"
-}
+    "SIGN-UP": "S'enregistrer",
+    "EXISTING-USERNAME": "Nom d'utilisateur deja pris"
+  },
+
+  "COMPUTER-DETAIL": {
+    "NAME": "Nom",
+    "INTRODUCED": "Lancement",
+    "DISCOUNTED": "Arrêt",
+    "EDIT": "Confirmer",
+    "DELETE": "Supprimer"
+  },
+
+  "PAGINATOR": {
+    "items_per_page": "Nombre d'éléments par page",
+    "next_page": "Page suivante",
+    "previous_page": "Page précedente",
+    "of": "sur"
+  },
+
+  "POPUP":{
+    "ON_DELETE": "Etes-vous sûr de vouloir supprimer "
+  }
+
 
 }

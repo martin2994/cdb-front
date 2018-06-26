@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {Computer} from '../computers/computer.model';
 import {DateAdapter} from '@angular/material';
@@ -27,7 +27,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class ComputerCreateComponent implements OnInit {
 
-  computer = new Computer();
+  @Input() computer = new Computer();
+  @Output() addEvent: EventEmitter<Computer> = new EventEmitter();
+
   computerForm: FormGroup;
   display = false;
   company_id = this.route.snapshot.paramMap.get('id');
@@ -89,9 +91,10 @@ export class ComputerCreateComponent implements OnInit {
 
       console.log(this.computer);
 
-      this.computerService.create(this.computer).subscribe();
-
-      this.router.navigate(['company/' + this.company_id]);
+      this.computerService.create(this.computer).subscribe(() => {
+        this.addEvent.emit(this.computer)
+        this.router.navigate(['company/' + this.company_id]);
+      });
     }
   }
 

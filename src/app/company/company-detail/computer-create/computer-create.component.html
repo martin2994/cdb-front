@@ -15,14 +15,14 @@
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="{{ 'SAVE-COMPUTER.INTRODUCED' | translate }}" name="introduced" [errorStateMatcher]="matcher" [min]="minDate" formControlName="introduced">
+          <input matInput readonly  [matDatepicker]="picker" placeholder="{{ 'SAVE-COMPUTER.INTRODUCED' | translate }}" name="introduced" [errorStateMatcher]="matcher" [min]="minDate" formControlName="introduced">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker startView="year"></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput [matDatepicker]="picker2" placeholder="{{ 'SAVE-COMPUTER.DISCONTINUED' | translate }}" name="discontinued" [errorStateMatcher]="matcher" [min]="minDate" formControlName="discontinued">
-          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <input matInput readonly  [matDatepicker]="picker2" placeholder="{{ 'SAVE-COMPUTER.DISCONTINUED' | translate }}" name="discontinued" [errorStateMatcher]="matcher" [min]="minDate" formControlName="discontinued">
+          <mat-datepicker-toggle disabled="false" matSuffix [for]="picker2"></mat-datepicker-toggle>
           <mat-datepicker #picker2 startView="year"></mat-datepicker>
           <mat-error *ngIf="computerForm.hasError('endDateLessThanStartDate')">{{ 'SAVE-COMPUTER.DISCONTINUED-ERROR' | translate }}</mat-error>
         </mat-form-field>

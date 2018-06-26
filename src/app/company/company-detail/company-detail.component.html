@@ -35,7 +35,7 @@
       <h2 class="company-name-header">{{company.name}}</h2>
     </div>
     <div *ngFor="let computer of computers.results" class="custom-computer-display" [@listAnimation]>
-      <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
+      <app-computers (deleteEvent)="delete($event)" (addEvent)="add($event)" [computer] = "computer"></app-computers>
     </div>
     <button mat-mini-fab color="accent" [routerLink]="['/company', company.id, 'create']"><mat-icon>add</mat-icon></button>
   </div>

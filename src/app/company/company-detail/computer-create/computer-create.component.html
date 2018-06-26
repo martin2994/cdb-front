@@ -1,36 +1,39 @@
 <div class="container">
   <mat-card class="example-card">
     <mat-card-header>
-      <mat-card-title class="title"><h1 class="title">{{ 'SAVE-COMPANY.TITLE' | translate }}</h1></mat-card-title>
+      <mat-card-title class="title"><h1 class="title">{{ 'SAVE-COMPUTER.TITLE' | translate }}</h1></mat-card-title>
       <mat-card-subtitle>&nbsp;</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <form [formGroup]="computerForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="computerForm" (submit)="onSubmit()">
 
         <mat-form-field class="full-width">
-          <input matInput placeholder="{{ 'SAVE-COMPANY.FIELD-NAME' | translate }}" formControlName="name">
+          <input matInput placeholder="{{ 'SAVE-COMPUTER.NAME' | translate }}" formControlName="name">
           <mat-error>
-            {{ 'SAVE-COMPANY.NAME-REQUIRED-ERROR' | translate }}
+            {{ 'SAVE-COMPUTER.NAME-REQUIRED-ERROR' | translate }}
           </mat-error>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput [matDatepicker]="picker" placeholder="Lancement" name="introduced" formControlName="introduced" (dateInput)="compareDates()">
+          <input matInput [matDatepicker]="picker" placeholder="{{ 'SAVE-COMPUTER.INTRODUCED' | translate }}" name="introduced" formControlName="introduced" (dateInput)="compareDates()">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker startView="year"></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput [matDatepicker]="picker2" placeholder="Arrêt" name="discontinued" formControlName="discontinued" (dateInput)="compareDates()">
+          <input matInput [matDatepicker]="picker2" placeholder="{{ 'SAVE-COMPUTER.DISCONTINUED' | translate }}" name="discontinued" formControlName="discontinued" (dateInput)="compareDates()">
           <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
           <mat-datepicker #picker2 startView="year"></mat-datepicker>
         </mat-form-field>
 
-        <div *ngIf="error.isError" class="alert alert-danger">
+        <mat-error *ngIf="error.isError">
           {{ error.errorMessage }}
-        </div>
+        </mat-error>
 
-        <button type="submit" class="button" mat-raised-button color="primary">{{ 'SAVE-COMPANY.BUTTON-SAVE' | translate }}</button>
+        <button type="submit" class="button" mat-raised-button color="primary">{{ 'SAVE-COMPUTER.BUTTON-SAVE' | translate }}</button>
+        <button type="button" class="button" (click)="goBack()" mat-raised-button color="accent">{{ 'SAVE-COMPANY.GO-BACK' | translate }}</button>
+
+
       </form>
     </mat-card-content>
     <mat-card-actions>

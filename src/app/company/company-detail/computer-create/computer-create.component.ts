@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Company} from '../../company.model';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Computer} from '../computers/computer.model';
 import {CompanyService} from '../../company.service';
 import {DateAdapter, MAT_DATE_LOCALE, MatSnackBar} from '@angular/material';
@@ -49,7 +49,7 @@ export class ComputerCreateComponent implements OnInit {
 
     if (!isNullOrUndefined(new Date(this.computerForm.get('introduced').value)) && !isNullOrUndefined(new Date(this.computerForm.get('discontinued').value))) {
       if (new Date(this.computerForm.get('discontinued').value) < new Date(this.computerForm.get('introduced').value)) {
-        this.error = {isError: true, errorMessage: 'End Date can\'t before start date'};
+        this.error = {isError: true, errorMessage: 'End Date can\'t be before start date'};
       } else {
         this.error = {isError: false, errorMessage: ''};
       }
@@ -60,10 +60,10 @@ export class ComputerCreateComponent implements OnInit {
 
     this.computer.name = this.computerForm.get('name').value;
 
-    console.log(this.computerForm.get('introduced').value == '');
+    console.log(this.computerForm.get('introduced').value === '');
     console.log(isNullOrUndefined(new Date(this.computerForm.get('discontinued').value)));
 
-    if(this.computerForm.get('introduced').value != '') {
+    if(this.computerForm.get('introduced').value !== '') {
       this.computer.introduced = new Date(this.computerForm.get('introduced').value).toLocaleDateString().split('/')[2]
         + '-' + new Date(this.computerForm.get('introduced').value).toLocaleDateString().split('/')[1]
         + '-' + new Date(this.computerForm.get('introduced').value).toLocaleDateString().split('/')[0];
@@ -71,7 +71,7 @@ export class ComputerCreateComponent implements OnInit {
       this.computer.introduced = null;
     }
 
-    if(this.computerForm.get('discontinued').value != '') {
+    if(this.computerForm.get('discontinued').value !== '') {
       this.computer.discontinued = new Date(this.computerForm.get('discontinued').value).toLocaleDateString().split('/')[2]
         + '-' + new Date(this.computerForm.get('discontinued').value).toLocaleDateString().split('/')[1]
         + '-' + new Date(this.computerForm.get('discontinued').value).toLocaleDateString().split('/')[0];
@@ -81,10 +81,14 @@ export class ComputerCreateComponent implements OnInit {
 
     this.computer.manufacturerId = +this.company_id;
 
-    //console.log(this.computer);
+    console.log(this.computer);
 
     this.computerService.create(this.computer).subscribe();
 
-    this.router.navigate(['company/' + this.company_id])
+    this.router.navigate(['company/' + this.company_id]);
+  }
+
+  goBack() {
+    this.router.navigate(['company/' + this.company_id]);
   }
 }

@@ -47,7 +47,7 @@ export class ComputerCreateComponent implements OnInit {
 
   createForm() {
     this.computerForm = this.fb.group({
-      name: new FormControl('', Validators.required),
+      name: new FormControl('', [Validators.required, Validators.maxLength( 30)]),
       introduced: new FormControl(''),
       discontinued: new FormControl('')
     }, { validator: this.checkDates });

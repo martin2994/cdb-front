@@ -41,7 +41,7 @@ export class ComputersComponent implements OnInit {
 
   ngOnInit() {
     this.editForm = this.fb.group({
-      name: new FormControl(this.computer.name, Validators.required),
+      name: new FormControl(this.computer.name, [Validators.required, Validators.maxLength( 30)]),
       introduced: new FormControl(this.computer.introduced),
       discontinued: new FormControl(this.computer.discontinued)
     }, { validator: this.checkDates });

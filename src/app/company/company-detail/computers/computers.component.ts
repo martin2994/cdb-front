@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Computer } from './computer.model';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ComputerService} from './computer.service';
-import {MAT_DATE_LOCALE} from '@angular/material';
+import {DateAdapter, MAT_DATE_LOCALE} from '@angular/material';
 import {Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
 import {TranslateService} from '@ngx-translate/core';
@@ -20,7 +20,7 @@ export class ComputersComponent implements OnInit {
   @Output() deleteEvent: EventEmitter<Computer> = new EventEmitter();
   editForm: FormGroup;
 
-  constructor(private computerService: ComputerService, private router: Router, private  translate: TranslateService) { }
+  constructor(private computerService: ComputerService, private dateAdapter: DateAdapter<Date>, private router: Router, private  translate: TranslateService) { }
 
   ngOnInit() {
     this.editForm = new FormGroup({
@@ -32,7 +32,7 @@ export class ComputersComponent implements OnInit {
 
   submit() {
     if (this.editForm.valid) {
-      this.computer = {...this.computer, ...this.editForm.value};
+      this.computer = <Computer>{...this.computer, ...this.editForm.value};
 
       if(!isNullOrUndefined(this.computer.introduced)) {
         this.computer.introduced = new Date(this.computer.introduced).toLocaleDateString().split('/')[2]

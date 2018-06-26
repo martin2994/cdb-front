@@ -8,11 +8,13 @@ import {CompanyDetailComponent} from './company/company-detail/company-detail.co
 import {LoginComponent} from './login/login.component';
 import {AuthGuard} from './auth.guard';
 import {SignupComponent} from './login/signup/signup.component';
+import {ComputerCreateComponent} from './company/company-detail/computer-create/computer-create.component';
 
 const routes: Routes = [
   { path: 'companies', component: CompaniesComponent, pathMatch: 'full', canActivate: [AuthGuard] },
   { path: 'company/create', component: CompanyCreateComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'company/:id/update', component: CompanyUpdateComponent, pathMatch: 'full', canActivate: [AuthGuard]},
+  { path: 'company/:id/create', component: ComputerCreateComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'company/:id', component: CompanyDetailComponent, pathMatch: 'full', canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent, pathMatch: 'full'},
   { path: 'signup', component: SignupComponent, pathMatch: 'full'},

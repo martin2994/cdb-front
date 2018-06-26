@@ -34,7 +34,7 @@
     <div *ngFor="let computer of computers.results" class="custom-computer-display" [@listAnimation]>
       <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
     </div>
-    <button mat-mini-fab color="accent"><mat-icon>add</mat-icon></button>
+    <button mat-mini-fab color="accent" [routerLink]="['/company', company.id, 'create']"><mat-icon>add</mat-icon></button>
   </div>
 </div>
 

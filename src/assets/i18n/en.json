@@ -21,6 +21,15 @@
     "GO-BACK": "Cancel"
   },
 
+  "SAVE-COMPUTER": {
+    "TITLE": "Add a computer",
+    "NAME": "Name",
+    "NAME-REQUIRED-ERROR": "Name is required",
+    "INTRODUCED": "Introduced date",
+    "DISCONTINUED": "Discontinued date",
+    "BUTTON-SAVE": "Save"
+  },
+
   "LOGIN": {
     "TITLE": "Login",
     "USERNAME": "Username",

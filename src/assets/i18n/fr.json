@@ -21,6 +21,15 @@
     "GO-BACK": "Annuler"
   },
 
+  "SAVE-COMPUTER": {
+    "TITLE": "Ajouter un ordinateur",
+    "NAME": "Nom",
+    "NAME-REQUIRED-ERROR": "Le nom est obligatoire",
+    "INTRODUCED": "Date de lancement",
+    "DISCONTINUED": "Date d'arret",
+    "BUTTON-SAVE": "Enregistrer"
+  },
+
   "LOGIN": {
     "TITLE": "Connexion",
     "USERNAME": "Nom d'utilsateur",

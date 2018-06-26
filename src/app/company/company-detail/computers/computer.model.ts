@@ -3,5 +3,5 @@ export class Computer {
   name: string;
   introduced: string;
   discontinued: string;
-  company_id: number;
+  manufacturerId: number;
 }

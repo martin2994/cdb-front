@@ -14,7 +14,7 @@ import {animate, query, stagger, style, transition, trigger} from '@angular/anim
   selector: 'app-company-detail',
   templateUrl: './company-detail.component.html',
   styleUrls: ['./company-detail.component.scss',
-    "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css",
+    '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css',
   ],
   animations: [
     trigger('listAnimation', [

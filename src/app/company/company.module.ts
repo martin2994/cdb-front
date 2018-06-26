@@ -13,6 +13,7 @@ import {MatGridListModule, MatPaginatorModule} from '@angular/material';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpLoaderFactory} from '../app.module';
 import {HttpClient} from '@angular/common/http';
+import { ComputerCreateComponent } from './company-detail/computer-create/computer-create.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import {HttpClient} from '@angular/common/http';
     CompanyDetailComponent,
     CompanyCreateComponent,
     CompanyUpdateComponent,
-    ComputersComponent
+    ComputersComponent,
+    ComputerCreateComponent
   ]
 })
 export class CompanyModule { }

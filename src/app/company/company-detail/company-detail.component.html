@@ -2,14 +2,14 @@
   <mat-toolbar class="toolbar">
   <span class="toolbar-element">
      <span class="toolbar-element">
-    <button mat-raised-button color="accent" *ngIf='search_mod' (click)="reinitializeList()">{{ 'SEARCH-BAR.RESET-SEARCH' | translate }}</button>
+    <button mat-raised-button color="primary" *ngIf='search_mod' (click)="reinitializeList()">{{ 'SEARCH-BAR.RESET-SEARCH' | translate }}</button>
      </span>
     <mat-form-field >
       <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
     </mat-form-field>
     </span>
     <span class="toolbar-element">
-  <button mat-raised-button color="accent" (click)="searchComputers()">{{ 'SEARCH-BAR.SEARCH' | translate }}</button>
+  <button mat-raised-button color="primary" (click)="searchComputers()">{{ 'SEARCH-BAR.SEARCH' | translate }}</button>
 </span>
     <span class="toolbar-element">
   <mat-paginator style="float: right;" [length]="length"
@@ -20,7 +20,7 @@
     </span>
     <span class="fill-space"></span>
     <span class="toolbar-element">
-  <button mat-raised-button color="accent" [routerLink]="['/company', company.id, 'update']">{{ 'SEARCH-BAR.UPDATE-COMPANY' | translate }}</button>
+  <button mat-raised-button color="primary" [routerLink]="['/company', company.id, 'update']">{{ 'SEARCH-BAR.UPDATE-COMPANY' | translate }}</button>
   </span>
   </mat-toolbar>
 
@@ -33,7 +33,7 @@
     <div *ngFor="let computer of computers.results" class="custom-computer-display" [@listAnimation]>
       <app-computers (deleteEvent)="delete($event)" [computer] = "computer"></app-computers>
     </div>
-    <button mat-mini-fab color="accent" [routerLink]="['/company', company.id, 'create']"><mat-icon>add</mat-icon></button>
+    <button mat-mini-fab color="primary" [routerLink]="['/company', company.id, 'create']"><mat-icon>add</mat-icon></button>
   </div>
 </div>
 

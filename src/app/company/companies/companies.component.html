@@ -4,7 +4,7 @@
       <mat-form-field >
         <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
       </mat-form-field>
-      <button mat-raised-button color="accent" (click)="searchCompany()">{{ 'SEARCH-BAR.SEARCH' | translate }}</button>
+      <button mat-raised-button color="primary" (click)="searchCompany()">{{ 'SEARCH-BAR.SEARCH' | translate }}</button>
     </div>
     <mat-paginator class="mat-paginator"
                    #paginator
@@ -20,7 +20,7 @@
       <mat-icon >view_headline</mat-icon>
     </div>
     <div class="toolbar-button-margin">
-      <button mat-raised-button color="accent" [routerLink]="['/company/create']">{{ 'SEARCH-BAR.ADD' | translate }}</button>
+      <button mat-raised-button color="primary" [routerLink]="['/company/create']">{{ 'SEARCH-BAR.ADD' | translate }}</button>
     </div>
   </div>
 </mat-toolbar>
@@ -40,7 +40,7 @@
       </div>
       <mat-grid-tile-footer>
         <span class="fill-space"></span>
-        <button class="button-visibility" mat-raised-button color="accent" [routerLink]="['/company',company.id]" >
+        <button class="button-visibility" mat-raised-button color="primary" [routerLink]="['/company',company.id]" >
           <mat-icon>visibility</mat-icon>
         </button>
       </mat-grid-tile-footer>

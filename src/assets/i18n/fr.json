@@ -71,7 +71,7 @@
 
   "POPUP":{
     "CONFIRM": "Supprimer ?",
-    "ON_DELETE": "Etes-vous sûr de vouloir supprimer ?",
+    "ON_DELETE": "Etes-vous sûr de vouloir supprimer ",
     "OK": "OK",
     "CANCEL": "Annuler"
   }

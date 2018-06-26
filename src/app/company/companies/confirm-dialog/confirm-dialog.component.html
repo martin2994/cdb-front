@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>{{ 'POPUP.CONFIRM' | translate }}</h1>
-<div mat-dialog-content>{{ 'POPUP.ON_DELETE' | translate }}</div>
+<div mat-dialog-content><span>{{ 'POPUP.ON_DELETE'| translate }} ?</span></div>
 <div mat-dialog-actions>
-  <button mat-raised-button color="warn" (click)="dialogRef.close(true)">{{ 'POPUP.OK' | translate }}</button>
+  <button mat-raised-button color="primary" (click)="dialogRef.close(true)">{{ 'POPUP.OK' | translate }}</button>
   <button mat-raised-button color="accent" (click)="dialogRef.close(false)">{{ 'POPUP.CANCEL' | translate }}</button>
 </div>

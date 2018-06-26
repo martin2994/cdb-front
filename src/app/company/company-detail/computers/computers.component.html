@@ -1,4 +1,4 @@
-<mat-expansion-panel *ngIf="computer">
+<mat-expansion-panel *ngIf="computer" class="content-row">
 
 
   <mat-expansion-panel-header>
@@ -6,7 +6,7 @@
       {{ computer.name }}
     </mat-panel-title>
   </mat-expansion-panel-header>
-
+  <mat-divider class="header-divider"></mat-divider>
   <form [formGroup]="editForm">
 
   <mat-card-content>

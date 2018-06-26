@@ -26,6 +26,7 @@
 .toolbar {
   display: inline-flex;
   height: 10%;
+  background: #006BA5;
 }
 
 .containerNavigator {
@@ -39,6 +40,10 @@
 
 .main-container{
   margin-left: 100px;
+}
+
+mat-paginator {
+  background: #006BA5;
 }
 
 .fill-space {
@@ -85,7 +90,12 @@ img {
   margin: 10px;
 }
 
-.company-name {
+.company-name-header {
   font-family: "Helvetica";
   font-size: 38px;
+  color: white;
+}
+
+.logo-header {
+  border-radius: 50%;
 }

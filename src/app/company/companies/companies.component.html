@@ -6,7 +6,7 @@
     </span>
   <span class="toolbar-element">
   <button mat-raised-button color="accent" (click)="searchCompany()">{{ 'SEARCH-BAR.SEARCH' | translate }}</button>
-</span>
+  </span>
   <span class="toolbar-element">
   <mat-paginator class="mat-paginator"
                  #paginator
@@ -28,7 +28,6 @@
 
 <div *ngIf="companies" class="container">
   <mat-grid-list cols="4" [gutterSize]=20 *ngIf="!checked">
-
     <mat-grid-tile *ngFor="let company of companies.results" @companyAnim [routerLink]="['/company',company.id]">
       <mat-grid-tile-header  class="tile-header">
         <span class="text-tile-header">{{company.name}}</span>

@@ -15,6 +15,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import {MatNativeDateModule} from '@angular/material';
     MatListModule,
     MatDividerModule,
     MatSlideToggleModule,
-    MatDialogModule
+    MatDialogModule,
+    FlexLayoutModule
   ],
   exports: [
     MatToolbarModule,
@@ -52,7 +54,8 @@ import {MatNativeDateModule} from '@angular/material';
     MatListModule,
     MatDividerModule,
     MatSlideToggleModule,
-    MatDialogModule
+    MatDialogModule,
+    FlexLayoutModule
   ],
   declarations: [
   ]

@@ -1,33 +1,32 @@
 <mat-toolbar class="toolbar">
-  <span class="toolbar-element">
-  <mat-form-field >
-    <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
-  </mat-form-field>
-    </span>
-  <span class="toolbar-element">
-  <button mat-raised-button color="accent" (click)="searchCompany()">{{ 'SEARCH-BAR.SEARCH' | translate }}</button>
-  </span>
-  <span class="toolbar-element">
-  <mat-paginator class="mat-paginator"
-                 #paginator
-                 [length]="length"
-                 pageSize="12"
-                 [pageSizeOptions]="pageSizeOptions"
-                 (page)="changePagination($event)">
-  </mat-paginator>
-  </span>
-  <mat-icon>view_module</mat-icon>
-  <mat-slide-toggle [(ngModel)]="checked">
-  </mat-slide-toggle>
-  <mat-icon>view_headline</mat-icon>
-  <span class="fill-space"></span>
-  <span class="toolbar-element">
-  <button mat-raised-button color="accent" [routerLink]="['/company/create']">{{ 'SEARCH-BAR.ADD' | translate }}</button>
-  </span>
+  <div class="container-fluid row">
+    <div>
+      <mat-form-field >
+        <input matInput placeholder="{{ 'SEARCH-BAR.SEARCH' | translate }}" [(ngModel)]="search">
+      </mat-form-field>
+      <button mat-raised-button color="accent" (click)="searchCompany()">{{ 'SEARCH-BAR.SEARCH' | translate }}</button>
+    </div>
+    <mat-paginator class="mat-paginator"
+                   #paginator
+                   [length]="length"
+                   pageSize="12"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="changePagination($event)">
+    </mat-paginator>
+    <div class="toolbar-toogle-margin">
+      <mat-icon>view_module</mat-icon>
+      <mat-slide-toggle [(ngModel)]="checked">
+      </mat-slide-toggle>
+      <mat-icon >view_headline</mat-icon>
+    </div>
+    <div class="toolbar-button-margin">
+      <button mat-raised-button color="accent" [routerLink]="['/company/create']">{{ 'SEARCH-BAR.ADD' | translate }}</button>
+    </div>
+  </div>
 </mat-toolbar>
 
-<div *ngIf="companies" class="container">
-  <mat-grid-list cols="4" [gutterSize]=20 *ngIf="!checked">
+<div *ngIf="companies" class="container-card">
+  <mat-grid-list [cols]="breakpoint" [gutterSize]=20 *ngIf="!checked" (window:resize)="onResize($event)">
     <mat-grid-tile *ngFor="let company of companies.results" @companyAnim>
       <mat-grid-tile-header  class="tile-header">
         <span class="text-tile-header" [routerLink]="['/company',company.id]">{{company.name}}</span>
@@ -43,7 +42,7 @@
         <span class="fill-space"></span>
         <button class="button-visibility" mat-raised-button color="accent" [routerLink]="['/company',company.id]" >
           <mat-icon>visibility</mat-icon>
-      </button>
+        </button>
       </mat-grid-tile-footer>
     </mat-grid-tile>
   </mat-grid-list>
@@ -64,6 +63,4 @@
     </mat-list-item>
   </mat-list>
 </div>
-
-
 

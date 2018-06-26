@@ -47,11 +47,13 @@ export class CompaniesComponent implements OnInit {
   search: string;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   checked = false;
+  breakpoint: number;
 
   constructor(private companyService: CompanyService, private  translate: TranslateService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
+    this.breakpoint = (window.innerWidth <= 400) ? 1 : (window.innerWidth <= 800) ? 2 : 4;
     this.search = '';
     this.pageSize = 12;
     this.getCompanies(0, this.pageSize, this.search);
@@ -86,6 +88,10 @@ export class CompaniesComponent implements OnInit {
         this.companies.results.splice(this.companies.results.indexOf(company), 1 );
       }
     });
+  }
+
+  onResize(event) {
+    this.breakpoint = (window.innerWidth <= 400) ? 1 : (window.innerWidth <= 800) ? 2 : 4;
   }
 }
 

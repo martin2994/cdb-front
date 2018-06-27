@@ -1,12 +1,13 @@
 import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {Computer} from '../computers/computer.model';
-import {DateAdapter} from '@angular/material';
+import {DateAdapter, MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {ComputerService} from '../computers/computer.service';
 import {isNullOrUndefined} from 'util';
 import {ActivatedRoute, Router} from '@angular/router';
 import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
 import { ErrorStateMatcher } from '@angular/material/core';
+import {TranslateService} from '@ngx-translate/core';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
 
@@ -58,7 +59,7 @@ export class ComputerCreateComponent implements OnInit {
 
   constructor(private computerService: ComputerService, private fb: FormBuilder, private dateAdapter: DateAdapter<Date>,
               private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router, private snackBar: MatSnackBar, private translate: TranslateService) {
     this.dateAdapter.setLocale('fr');
   }
 
@@ -111,13 +112,31 @@ export class ComputerCreateComponent implements OnInit {
       console.log(this.computer);
 
       this.computerService.create(this.computer).subscribe(() => {
-        this.addEvent.emit(this.computer)
+        this.addEvent.emit(this.computer);
+        this.addSucceed(this.translate.instant('SNACKBAR.SUCCESS_ADD'));
         this.router.navigate(['company/' + this.company_id]);
-      });
+      }, () => this.addFail(this.translate.instant('SNACKBAR.ERROR_ADD')));
     }
   }
 
   goBack() {
     this.router.navigate(['company/' + this.company_id]);
+  }
+
+  addSucceed(message: string) {
+    const config = new MatSnackBarConfig();
+    config.verticalPosition = 'bottom';
+    config.horizontalPosition = 'right';
+    config.duration = 2000;
+    config.panelClass = ['succeed'];
+    this.snackBar.open(message, 'OK', config);
+  }
+  addFail(message: string) {
+    const config = new MatSnackBarConfig();
+    config.verticalPosition = 'bottom';
+    config.horizontalPosition = 'right';
+    config.duration = 2000;
+    config.panelClass = ['fail'];
+    this.snackBar.open(message, 'OK', config);
   }
 }

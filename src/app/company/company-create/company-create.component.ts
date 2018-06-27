@@ -7,6 +7,7 @@ import {CompanyService} from '../company.service';
 import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {Location} from '@angular/common';
 import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-company-create',
@@ -38,7 +39,7 @@ export class CompanyCreateComponent implements OnInit {
   companyForm: FormGroup;
   display = false;
 
-  constructor(private companyService: CompanyService, private fb: FormBuilder, public snackBar: MatSnackBar, private location: Location) {}
+  constructor(private companyService: CompanyService, private fb: FormBuilder, private snackBar: MatSnackBar, private location: Location, private translate: TranslateService) {}
 
   ngOnInit() {
     this.createForm();
@@ -64,7 +65,7 @@ export class CompanyCreateComponent implements OnInit {
     config.horizontalPosition = 'right';
     config.duration = 2000;
     config.panelClass = ['succeed'];
-    this.snackBar.open('Ajout réussi', 'OK', config);
+    this.snackBar.open(this.translate.instant('SNACKBAR.SUCCESS_ADD'), 'OK', config);
   }
   addFail() {
     const config = new MatSnackBarConfig();
@@ -72,7 +73,7 @@ export class CompanyCreateComponent implements OnInit {
     config.horizontalPosition = 'right';
     config.duration = 2000;
     config.panelClass = ['fail'];
-    this.snackBar.open('Erreur d ajout', 'OK', config);
+    this.snackBar.open(this.translate.instant('SNACKBAR.ERROR_ADD'), 'OK', config);
   }
   displayLogo() {
     if (this.companyForm.value.logo) {

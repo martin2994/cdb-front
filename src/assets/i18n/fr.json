@@ -74,6 +74,15 @@
     "ON_DELETE": "Etes-vous sûr de vouloir supprimer ",
     "OK": "OK",
     "CANCEL": "Annuler"
+  },
+
+  "SNACKBAR": {
+    "ERROR_SUPP": "Erreur de suppression",
+    "ERROR_ADD:": "Erreur d'ajout",
+    "ERROR_UPDATE": "Erreur de mise à jour",
+    "SUCCESS_SUPP": "Suppression effectuée",
+    "SUCCESS_UPDATE":"Mise à jour effectuée",
+    "SUCCESS_ADD":"Ajout effectué"
   }
 
 

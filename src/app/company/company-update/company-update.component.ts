@@ -6,6 +6,7 @@ import {Company} from '../company.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Location } from '@angular/common';
 import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-company-update',
@@ -35,7 +36,7 @@ export class CompanyUpdateComponent implements OnInit {
               public snackBar: MatSnackBar,
               private route: ActivatedRoute,
               private router: Router,
-              private location: Location) {}
+              private location: Location, private  translate: TranslateService) {}
 
   ngOnInit() {
     this.companyService.getCompany(this.route.snapshot.paramMap.get('id'))
@@ -66,7 +67,7 @@ export class CompanyUpdateComponent implements OnInit {
     config.horizontalPosition = 'right';
     config.duration = 2000;
     config.panelClass = ['fail'];
-    this.snackBar.open('Erreur d ajout', 'OK', config);
+    this.snackBar.open( this.translate.instant('SNACKBAR.ERROR_UPDATE'), 'OK', config);
   }
   displayLogo() {
     if (this.companyForm.value.logo) {

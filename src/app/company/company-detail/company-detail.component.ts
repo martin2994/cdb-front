@@ -3,7 +3,7 @@ import {Company} from '../company.model';
 import {CompanyService} from '../company.service';
 import {ActivatedRoute} from '@angular/router';
 import {Computer} from './computers/computer.model';
-import {DateAdapter, PageEvent} from '@angular/material';
+import {DateAdapter, MatSnackBar, MatSnackBarConfig, PageEvent} from '@angular/material';
 import {ComputerService} from './computers/computer.service';
 import {isNullOrUndefined} from 'util';
 import {Page} from '../../page.model';

@@ -74,6 +74,15 @@
     "CONFIRM": "Delete ?",
     "OK": "OK",
     "CANCEL": "Cancel"
+  },
+
+  "SNACKBAR": {
+    "ERROR_SUPP": "Delete error",
+    "ERROR_ADD:": "Add error",
+    "ERROR_UPDATE": "Update error",
+    "SUCCESS_SUPP": "Delete success",
+    "SUCCESS_UPDATE":"Update success",
+    "SUCCESS_ADD":"Add success"
   }
 
 }

@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Computer } from './computer.model';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ComputerService} from './computer.service';
-import {DateAdapter, MAT_DATE_LOCALE, MatDialog} from '@angular/material';
+import {DateAdapter, MAT_DATE_LOCALE, MatDialog, MatSnackBar, MatSnackBarConfig} from '@angular/material';
 import {Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
 import {TranslateService} from '@ngx-translate/core';
@@ -39,7 +39,9 @@ export class ComputersComponent implements OnInit {
   minDate = new Date(1970, 1, 1);
 
   constructor(private computerService: ComputerService, private dateAdapter: DateAdapter<Date>,
-              private fb: FormBuilder, private router: Router, private  translate: TranslateService,  public dialog: MatDialog) {}
+              private fb: FormBuilder, private router: Router, private  translate: TranslateService,
+              public dialog: MatDialog,
+              private snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.editForm = this.fb.group({
@@ -80,7 +82,8 @@ export class ComputersComponent implements OnInit {
 
       console.log(this.computer);
 
-      this.computerService.update(this.computer).subscribe();
+      this.computerService.update(this.computer).subscribe(() => this.addSucceed(this.translate.instant('SNACKBAR.SUCCESS_UPDATE'))
+        , () => this.addFail(this.translate.instant('SNACKBAR.ERROR_UPDATE')));
     }
   }
 
@@ -93,9 +96,28 @@ export class ComputersComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.computerService.remove(this.computer).subscribe(() => this.deleteEvent.emit(this.computer));
+        this.computerService.remove(this.computer).subscribe(() => {
+          this.addSucceed(this.translate.instant('SNACKBAR.SUCCESS_SUPP')); this.deleteEvent.emit(this.computer);
+          }, () => this.addFail(this.translate.instant('SNACKBAR.ERROR_SUPP')));
       }
     });
+  }
+
+  addSucceed(message: string) {
+    const config = new MatSnackBarConfig();
+    config.verticalPosition = 'bottom';
+    config.horizontalPosition = 'right';
+    config.duration = 2000;
+    config.panelClass = ['succeed'];
+    this.snackBar.open(message, 'OK', config);
+  }
+  addFail(message: string) {
+    const config = new MatSnackBarConfig();
+    config.verticalPosition = 'bottom';
+    config.horizontalPosition = 'right';
+    config.duration = 2000;
+    config.panelClass = ['fail'];
+    this.snackBar.open(message, 'OK', config);
   }
 
 }

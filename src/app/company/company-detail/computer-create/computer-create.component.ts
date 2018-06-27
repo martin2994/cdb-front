@@ -37,7 +37,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
         ])),
 
         query(':enter', [
-          animate(1000, style('*'))
+          animate(200, style('*'))
         ])
       ])
     ])

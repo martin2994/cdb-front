@@ -8,7 +8,7 @@
     "SEARCH": "Rechercher",
     "ADD": "AJOUTER",
     "RESET-SEARCH": "Reinitialise",
-    "UPDATE-COMPANY": "Modifier Companie"
+    "UPDATE-COMPANY": "Modifier Compagnie"
   },
 
   "SAVE-COMPANY": {
@@ -18,7 +18,8 @@
   "NAME-REQUIRED-ERROR": "Le nom est obligatoire (max 30 chars.)",
   "FIELD-IMAGE-URL": "URL de l'image",
     "BUTTON-SAVE": "Enregistrer",
-    "GO-BACK": "Annuler"
+    "GO-BACK": "Annuler",
+    "LOGO-ERROR": "Url trop long (255 caractères max)"
   },
 
   "SAVE-COMPUTER": {
@@ -33,7 +34,7 @@
 
   "LOGIN": {
     "TITLE": "Connexion",
-    "LOGOUT": "Se Déconnecter",
+    "LOGOUT": "Déconnexion",
     "USERNAME": "Nom d'utilsateur",
     "PASSWORD": "Mot de passe",
     "LOGIN": "Se connecter",

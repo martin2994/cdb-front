@@ -18,7 +18,8 @@
     "NAME-REQUIRED-ERROR": "Name is required (max 30 chars.)",
     "FIELD-IMAGE-URL": "Image URL",
     "BUTTON-SAVE": "Save",
-    "GO-BACK": "Cancel"
+    "GO-BACK": "Cancel",
+    "LOGO-ERROR": "Url toop long (255 characters max)"
   },
 
   "SAVE-COMPUTER": {

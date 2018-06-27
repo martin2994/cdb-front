@@ -14,7 +14,8 @@
         </mat-form-field>
 
         <mat-form-field class="full-width">
-          <input matInput placeholder="{{ 'SAVE-COMPANY.FIELD-IMAGE-URL' | translate }}" formControlName="logo" (change)="displayLogo()">
+          <input matInput #message placeholder="{{ 'SAVE-COMPANY.FIELD-IMAGE-URL' | translate }}" formControlName="logo" (change)="displayLogo()">
+          <mat-hint align="end">{{message.value.length}}/255</mat-hint>
         </mat-form-field>
         <div class="image-container" [@listAnimation]>
           <img *ngIf="display" mat-card-image [src]="companyForm.value.logo" (error)="hideLogo()" >

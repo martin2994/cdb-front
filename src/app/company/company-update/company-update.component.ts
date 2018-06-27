@@ -56,7 +56,7 @@ export class CompanyUpdateComponent implements OnInit {
   createForm() {
     this.companyForm = this.fb.group({
       name: [this.company.name || '', [Validators.required, Validators.maxLength( 30)]],
-      logo: [this.company.logo || '']
+      logo: [this.company.logo || '', Validators.maxLength(255)]
     });
     this.displayLogo();
   }

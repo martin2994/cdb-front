@@ -139,4 +139,12 @@ export class ComputerCreateComponent implements OnInit {
     config.panelClass = ['fail'];
     this.snackBar.open(message, 'OK', config);
   }
+
+  clearIntroduced() {
+    this.computerForm.get('introduced').setValue(undefined);
+  }
+
+  clearDiscontinued() {
+    this.computerForm.get('discontinued').setValue(undefined);
+  }
 }

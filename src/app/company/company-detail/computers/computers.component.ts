@@ -120,4 +120,11 @@ export class ComputersComponent implements OnInit {
     this.snackBar.open(message, 'OK', config);
   }
 
+  clearIntroduced() {
+    this.editForm.get('introduced').setValue(undefined);
+  }
+
+  clearDiscontinued() {
+    this.editForm.get('discontinued').setValue(undefined);
+  }
 }

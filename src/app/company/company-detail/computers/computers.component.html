@@ -24,6 +24,9 @@
       <input matInput readonly [matDatepicker]="picker" placeholder="{{ 'COMPUTER-DETAIL.INTRODUCED' | translate }}" name="introduced" formControlName="introduced" [errorStateMatcher]="matcher" [min]="minDate" value="{{ computer.introduced | date:'yyyy-MM-dd' }}">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker startView="year"></mat-datepicker>
+      <button mat-button *ngIf="editForm.get('introduced').value" matSuffix mat-icon-button aria-label="Clear" (click)="clearIntroduced()">
+        <mat-icon>close</mat-icon>
+      </button>
     </mat-form-field>
 
     &nbsp;
@@ -32,6 +35,9 @@
       <input matInput readonly [matDatepicker]="picker2" placeholder="{{ 'COMPUTER-DETAIL.DISCOUNTED' | translate }}" name="discontinued" formControlName="discontinued" [errorStateMatcher]="matcher"  [min]="minDate" value="{{ computer.discontinued | date:'yyyy-MM-dd' }}">
       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
       <mat-datepicker #picker2 startView="year"></mat-datepicker>
+      <button mat-button *ngIf="editForm.get('discontinued').value" matSuffix mat-icon-button aria-label="Clear" (click)="clearDiscontinued()">
+        <mat-icon>close</mat-icon>
+      </button>
       <mat-error *ngIf="editForm.hasError('endDateLessThanStartDate')">{{ 'SAVE-COMPUTER.DISCONTINUED-ERROR' | translate }}</mat-error>
     </mat-form-field>
 
